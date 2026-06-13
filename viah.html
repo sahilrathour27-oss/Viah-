@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Viah Beauty — India's White Truffle Skincare</title>
+
+<!-- Montserrat for Gotham Extra Light feel, Raleway for Como SemiBold feel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Core palette — built around Viah's actual navy product colour */
+  --navy:        #1A2E5C;
+  --navy-deep:   #0F1E3E;
+  --navy-mid:    #243876;
+  --navy-light:  #E8EDF8;
+  --orange:      #E8621A;
+  --orange-warm: #F07840;
+  --orange-pale: #FDF0E8;
+  --white:       #FFFFFF;
+  --off-white:   #F8F7F5;
+  --cream:       #F4F1EB;
+  --text:        #111827;
+  --text-mid:    #4B5563;
+  --text-light:  #9CA3AF;
+  --border:      #E5E3DE;
+
+  /* Typography — Gotham Extra Light feel = Montserrat 200 */
+  --font-display: 'Montserrat', 'Gill Sans', sans-serif;
+  /* Como SemiBold feel = Raleway 600 */
+  --font-heading: 'Raleway', 'Trebuchet MS', sans-serif;
+  --font-body:    'Montserrat', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  font-weight: 300;
+  background: var(--white);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ─── TYPOGRAPHY SYSTEM ──────────────────────────── */
+.eyebrow {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.display-xl {
+  font-family: var(--font-display);
+  font-weight: 200;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+}
+.heading-lg {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+.heading-md {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.body-light {
+  font-family: var(--font-display);
+  font-weight: 200;
+  line-height: 1.8;
+}
+
+/* ─── NAVIGATION ─────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+  height: 68px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 60px;
+  gap: 48px;
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 26px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.nav-logo span { color: var(--orange); }
+.nav-links {
+  display: flex; gap: 36px; list-style: none; flex: 1;
+}
+.nav-links a {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-right { display: flex; align-items: center; gap: 20px; margin-left: auto; }
+.nav-btn {
+  background: var(--orange);
+  color: var(--white);
+  padding: 10px 26px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s;
+  border-radius: 2px;
+}
+.nav-btn:hover { background: var(--orange-warm); }
+
+/* ─── HERO ───────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  padding-top: 68px;
+  background: var(--navy-deep);
+  display: grid;
+  grid-template-columns: 55% 45%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle geometric background */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -10%; right: -5%;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  border: 1px solid rgba(232,98,26,0.1);
+  pointer-events: none;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 5%; right: 10%;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+
+.hero-left {
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 56px 80px 80px;
+  position: relative; z-index: 2;
+}
+.hero-eyebrow {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 28px;
+  display: flex; align-items: center; gap: 12px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block; width: 32px; height: 1px;
+  background: var(--orange);
+}
+.hero-headline {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: clamp(48px, 5vw, 72px);
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.hero-headline-accent {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: clamp(52px, 5.5vw, 78px);
+  color: var(--orange);
+  display: block;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+.hero-sub {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 15px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.55);
+  max-width: 440px;
+  margin: 28px 0 48px;
+}
+.hero-actions {
+  display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+}
+.btn-orange {
+  background: var(--orange);
+  color: var(--white);
+  padding: 14px 36px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  display: inline-block;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-orange:hover { background: var(--orange-warm); transform: translateY(-1px); }
+.btn-ghost-white {
+  color: rgba(255,255,255,0.55);
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+.btn-ghost-white:hover { color: var(--white); border-color: rgba(255,255,255,0.6); }
+
+.hero-trust-row {
+  margin-top: 52px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex; gap: 36px;
+}
+.hero-trust-item {}
+.hero-trust-num {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 28px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.hero-trust-label {
+  font-family: var(--font-display);
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+/* Hero right — real product showcase */
+.hero-right {
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.hero-product-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(232,98,26,0.08) 0%, transparent 60%);
+}
+.hero-products-stack {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  gap: 0; width: 100%; height: 100%;
+}
+.hero-product-main {
+  flex: 1;
+  display: flex; align-items: center; justify-content: center;
+  padding: 40px;
+  position: relative;
+}
+.hero-product-img {
+  width: 220px;
+  height: 280px;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.5));
+  transition: transform 0.4s ease;
+}
+.hero-product-img:hover { transform: translateY(-8px) scale(1.02); }
+.hero-product-label {
+  position: absolute;
+  bottom: 32px; left: 32px; right: 32px;
+  background: rgba(26,46,92,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 16px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.hero-product-label-name {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: 12px;
+  color: rgba(255,255,255,0.85);
+  letter-spacing: 0.04em;
+}
+.hero-product-label-price {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--orange);
+}
+.hero-mini-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.hero-mini-product {
+  padding: 20px 16px;
+  border-right: 1px solid rgba(255,255,255,0.06);
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.hero-mini-product:last-child { border-right: none; }
+.hero-mini-product:hover { background: rgba(255,255,255,0.03); }
+.hero-mini-product img {
+  width: 52px; height: 64px; object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+}
+.hero-mini-label {
+  font-family: var(--font-display);
+  font-size: 8px; font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  text-align: center;
+}
+.hero-main-only {
+  width: 100%; height: 100%;
+  padding: 0;
+}
+.hero-main-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* ─── MARQUEE STRIP ──────────────────────────────── */
+.strip {
+  background: var(--orange);
+  padding: 14px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.strip-inner {
+  display: inline-flex; gap: 0;
+  animation: marquee 24s linear infinite;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.strip-item {
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--white);
+  padding: 0 32px;
+}
+.strip-dot {
+  color: rgba(255,255,255,0.4);
+  padding: 0 4px;
+  font-size: 6px;
+  line-height: 1;
+  display: inline-flex; align-items: center;
+}
+
+/* ─── PRESS ──────────────────────────────────────── */
+.press {
+  background: var(--white);
+  padding: 48px 80px;
+  border-bottom: 1px solid var(--border);
+}
+.press-label {
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--text-light);
+  text-align: center; margin-bottom: 28px;
+}
+.press-row {
+  display: flex; align-items: center;
+  justify-content: center; gap: 52px; flex-wrap: wrap;
+}
+.press-name {
+  font-family: var(--font-heading);
+  font-size: 17px; font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text-light);
+  transition: color 0.2s;
+}
+.press-name:hover { color: var(--navy); }
+
+/* ─── POSITION / WHY VIAH ────────────────────────── */
+.manifesto {
+  background: var(--off-white);
+  padding: 100px 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.manifesto-left {}
+.manifesto-eyebrow { margin-bottom: 20px; }
+.manifesto-headline {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: clamp(34px, 3.2vw, 48px);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--navy);
+  margin-bottom: 28px;
+}
+.manifesto-headline strong {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--orange);
+}
+.manifesto-body {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text-mid);
+  margin-bottom: 18px;
+}
+.text-link {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--orange); text-decoration: none;
+  border-bottom: 1px solid var(--orange);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+  display: inline-block; margin-top: 12px;
+}
+.text-link:hover { opacity: 0.7; }
+
+.manifesto-right {}
+.pullquote-card {
+  background: var(--navy);
+  padding: 48px 44px;
+  position: relative;
+}
+.pullquote-card::after {
+  content: '';
+  position: absolute;
+  bottom: -12px; right: -12px;
+  width: 100%; height: 100%;
+  background: var(--orange);
+  z-index: -1;
+  opacity: 0.15;
+}
+.pullquote-mark {
+  font-family: var(--font-heading);
+  font-size: 72px;
+  line-height: 0.6;
+  color: var(--orange);
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 20px;
+}
+.pullquote-text {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 20px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 28px;
+  font-style: italic;
+}
+.pullquote-attr {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--orange);
+}
+
+/* ─── INGREDIENTS ────────────────────────────────── */
+.ingredients {
+  background: var(--navy-deep);
+  padding: 100px 80px;
+}
+.ingredients-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 60px;
+}
+.ingredients-header-left {}
+.ingredients-headline {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: clamp(34px, 3.2vw, 48px);
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-top: 16px;
+}
+.ingredients-headline strong {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--orange);
+}
+.ingredients-note {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.4);
+  max-width: 280px;
+  text-align: right;
+}
+.ingredients-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 2px;
+}
+.ingredients-grid-secondary {
+  margin-bottom: 0;
+}
+.ing-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 36px 32px;
+  transition: border-color 0.25s, background 0.25s;
+}
+.ing-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(232,98,26,0.4);
+}
+.ing-card.hero-ing {
+  background: rgba(232,98,26,0.1);
+  border-color: rgba(232,98,26,0.25);
+}
+.ing-card-img {
+  display: flex; flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+}
+.ing-img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+.ing-card-body {
+  padding: 28px 28px 32px;
+  display: flex; flex-direction: column;
+}
+.ing-icon { font-size: 40px; display: block; margin-bottom: 20px; }
+.ing-tag {
+  font-family: var(--font-display);
+  font-size: 8px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 10px;
+}
+.ing-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--white);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+.ing-card.hero-ing .ing-name { font-size: 26px; }
+.ing-desc {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 13px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.5);
+}
+.ing-origin {
+  margin-top: auto; padding-top: 24px;
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(232,98,26,0.55);
+}
+
+/* ─── PRODUCTS ───────────────────────────────────── */
+.products {
+  background: var(--white);
+  padding: 100px 80px;
+}
+.section-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 52px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: clamp(30px, 2.8vw, 42px);
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-top: 14px;
+}
+.section-title strong {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--navy);
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.product-card {
+  background: var(--off-white);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(26,46,92,0.12);
+  z-index: 2;
+}
+.product-card-img-wrap {
+  aspect-ratio: 3/4;
+  background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+.product-card-img-wrap img {
+  width: 75%;
+  height: 85%;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+.product-card:hover .product-card-img-wrap img {
+  transform: scale(1.05);
+}
+.product-badge {
+  position: absolute; top: 14px; left: 14px;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 8px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 5px 10px;
+  z-index: 2;
+}
+.product-badge.orange { background: var(--orange); }
+.product-info {
+  padding: 22px 22px 26px;
+}
+.product-concern {
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 8px;
+}
+.product-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+.product-stars {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 16px;
+}
+.stars-icons { color: var(--orange); font-size: 11px; letter-spacing: 1px; }
+.review-n {
+  font-family: var(--font-display);
+  font-size: 11px; font-weight: 300;
+  color: var(--text-light);
+}
+.product-footer {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.product-price {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--navy);
+}
+.add-btn {
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 9px 18px;
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.add-btn:hover { background: var(--orange); }
+
+/* ─── SOCIAL PROOF ───────────────────────────────── */
+.proof {
+  background: var(--navy-light);
+  padding: 100px 80px;
+}
+.proof-header { text-align: center; margin-bottom: 64px; }
+.proof-headline {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: clamp(30px, 2.8vw, 44px);
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 16px 0 12px;
+}
+.proof-headline strong {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+.proof-sub {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 14px;
+  color: var(--text-mid);
+  max-width: 420px;
+  margin: 0 auto;
+}
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 3px;
+}
+.tcard {
+  background: var(--white);
+  padding: 36px 32px 32px;
+}
+.tcard-mark {
+  font-family: var(--font-heading);
+  font-size: 60px;
+  line-height: 0.7;
+  color: var(--orange);
+  opacity: 0.25;
+  display: block;
+  margin-bottom: 14px;
+}
+.tcard-text {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text);
+  font-style: italic;
+  margin-bottom: 24px;
+}
+.tcard-footer {
+  display: flex; align-items: center; gap: 12px;
+}
+.tcard-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.tcard-name {
+  font-family: var(--font-display);
+  font-size: 12px; font-weight: 500;
+  color: var(--text);
+}
+.tcard-loc {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 200;
+  color: var(--text-light);
+  letter-spacing: 0.06em;
+}
+.tcard-stars { color: var(--orange); font-size: 10px; letter-spacing: 1px; }
+
+.stats-row {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.stat-block {
+  background: var(--navy);
+  padding: 36px 32px;
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 44px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.stat-num span { font-family: var(--font-heading); font-weight: 600; color: var(--orange); }
+.stat-label {
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 400;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.5;
+}
+
+/* ─── TRUST / SCIENCE ────────────────────────────── */
+.trust {
+  background: var(--white);
+  padding: 100px 80px;
+}
+.trust-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.trust-text {}
+.trust-headline {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: clamp(28px, 2.6vw, 40px);
+  color: var(--navy);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 16px 0 24px;
+}
+.trust-headline strong {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--orange);
+}
+.trust-body {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text-mid);
+  margin-bottom: 16px;
+}
+.guarantee-box {
+  background: var(--navy);
+  padding: 28px 32px;
+  display: flex; gap: 18px; align-items: center;
+  margin-top: 36px;
+  border-left: 4px solid var(--orange);
+}
+.guarantee-icon { font-size: 28px; flex-shrink: 0; }
+.guarantee-text {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.85);
+  font-style: italic;
+}
+.trust-badges {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+.tbadge {
+  background: var(--off-white);
+  padding: 28px 24px;
+  display: flex; gap: 14px; align-items: flex-start;
+  transition: background 0.2s;
+}
+.tbadge:hover { background: var(--navy-light); }
+.tbadge-icon { font-size: 26px; flex-shrink: 0; }
+.tbadge-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.tbadge-desc {
+  font-family: var(--font-display);
+  font-size: 11px; font-weight: 200;
+  color: var(--text-mid);
+  line-height: 1.55;
+}
+
+/* ─── RITUAL / ROUTINE ───────────────────────────── */
+.ritual {
+  background: var(--navy-deep);
+  padding: 100px 80px;
+}
+.ritual-header { text-align: center; margin-bottom: 64px; }
+.ritual-eyebrow { color: var(--orange); }
+.ritual-headline {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: clamp(30px, 2.8vw, 44px);
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 16px 0 12px;
+}
+.ritual-headline strong {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--orange);
+}
+.ritual-sub {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+  max-width: 420px;
+  margin: 0 auto;
+}
+.ritual-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+.rstep {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 36px 30px;
+  position: relative;
+  overflow: hidden;
+}
+.rstep::before {
+  content: attr(data-num);
+  position: absolute;
+  top: -10px; right: 16px;
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 80px;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.rstep-time {
+  font-family: var(--font-display);
+  font-size: 8px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 20px;
+}
+.rstep-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.rstep-desc {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.45);
+}
+.rstep-product {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+}
+
+/* ─── CTA BANNER ─────────────────────────────────── */
+.cta-band {
+  background: var(--orange);
+  padding: 80px;
+  text-align: center;
+}
+.cta-band .eyebrow { color: rgba(255,255,255,0.7); margin-bottom: 20px; display: block; }
+.cta-headline {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: clamp(32px, 3.5vw, 52px);
+  color: var(--white);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.cta-headline strong {
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+.cta-sub {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 14px;
+  color: rgba(255,255,255,0.75);
+  max-width: 400px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+.cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.btn-white {
+  background: var(--white);
+  color: var(--orange);
+  padding: 14px 36px;
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  display: inline-block;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-white:hover { background: var(--navy); color: var(--white); }
+.btn-outline-white {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 14px 36px;
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  display: inline-block;
+  transition: border-color 0.2s;
+}
+.btn-outline-white:hover { border-color: var(--white); }
+
+/* ─── FOOTER ─────────────────────────────────────── */
+footer {
+  background: var(--navy-deep);
+  padding: 72px 80px 36px;
+}
+.footer-top {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 52px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 36px;
+}
+.footer-logo {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 28px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 14px;
+  display: block;
+}
+.footer-logo span { color: var(--orange); }
+.footer-tagline {
+  font-family: var(--font-display);
+  font-size: 12px; font-weight: 200;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.35);
+  max-width: 240px;
+  margin-bottom: 28px;
+}
+.footer-col-title {
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 18px;
+}
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a {
+  font-family: var(--font-display);
+  font-size: 12px; font-weight: 200;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.footer-links a:hover { color: var(--white); }
+.footer-bottom {
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.footer-copy {
+  font-family: var(--font-display);
+  font-size: 11px; font-weight: 200;
+  color: rgba(255,255,255,0.25);
+}
+.footer-legal { display: flex; gap: 24px; }
+.footer-legal a {
+  font-family: var(--font-display);
+  font-size: 10px; font-weight: 200;
+  color: rgba(255,255,255,0.25);
+  text-decoration: none; transition: color 0.2s;
+}
+.footer-legal a:hover { color: rgba(255,255,255,0.55); }
+
+/* ─── RESPONSIVE ─────────────────────────────────── */
+@media (max-width: 960px) {
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 60px 24px; }
+  .hero-right { display: none; }
+  .press { padding: 40px 24px; }
+  .press-row { gap: 24px; }
+  .manifesto { grid-template-columns: 1fr; padding: 72px 24px; gap: 40px; }
+  .ingredients { padding: 72px 24px; }
+  .ingredients-header { flex-direction: column; gap: 20px; align-items: flex-start; }
+  .ingredients-note { text-align: left; max-width: 100%; }
+  .ingredients-grid { grid-template-columns: 1fr; }
+  .ing-card.hero-ing { grid-row: auto; }
+  .products { padding: 72px 24px; }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .proof { padding: 72px 24px; }
+  .testimonials { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .trust { padding: 72px 24px; }
+  .trust-grid { grid-template-columns: 1fr; }
+  .trust-badges { grid-template-columns: 1fr; }
+  .ritual { padding: 72px 24px; }
+  .ritual-steps { grid-template-columns: repeat(2, 1fr); }
+  .cta-band { padding: 72px 24px; }
+  footer { padding: 48px 24px 32px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">VIAH<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#ingredients">Ingredients</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#ritual">Daily Ritual</a></li>
+    <li><a href="#proof">Results</a></li>
+    <li><a href="#">About Viah</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="#products" class="nav-btn">Shop Now</a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Crafted for Indian Skin</div>
+    <h1>
+      <span class="hero-headline">India's Only</span>
+      <span class="hero-headline-accent">White Truffle</span>
+      <span class="hero-headline">Skincare</span>
+    </h1>
+    <p class="hero-sub">
+      We use Italian White Truffle — one of the rarest ingredients on earth — formulated for Indian skin. Because your skin deserves ingredients that actually work, not a marketing story.
+    </p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-orange">Explore the Range</a>
+      <a href="#ingredients" class="btn-ghost-white">Why White Truffle →</a>
+    </div>
+    <div class="hero-trust-row">
+      <div class="hero-trust-item">
+        <div class="hero-trust-num">630<span style="color:var(--orange);font-size:20px">+</span></div>
+        <div class="hero-trust-label">Verified Reviews</div>
+      </div>
+      <div class="hero-trust-item">
+        <div class="hero-trust-num">4.8<span style="color:var(--orange);font-size:16px">★</span></div>
+        <div class="hero-trust-label">Average Rating</div>
+      </div>
+      <div class="hero-trust-item">
+        <div class="hero-trust-num">7</div>
+        <div class="hero-trust-label">Rare Ingredients</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-product-bg"></div>
+    <div class="hero-products-stack">
+      <div class="hero-product-main hero-main-only">
+        <img
+          class="hero-main-img"
+          src="images/Main_Header_image.png"
+          alt="Viah Triple Action Moisturiser with Italian White Truffle"
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── STRIP ─────────────────────────────────────── -->
+<div class="strip">
+  <div class="strip-inner">
+    <!-- doubled for seamless loop -->
+    <span class="strip-item">Italian White Truffle</span><span class="strip-dot">●</span>
+    <span class="strip-item">Australian Lime Caviar</span><span class="strip-dot">●</span>
+    <span class="strip-item">Clinically Tested</span><span class="strip-dot">●</span>
+    <span class="strip-item">Formulated for Indian Skin</span><span class="strip-dot">●</span>
+    <span class="strip-item">No Parabens · No GMOs</span><span class="strip-dot">●</span>
+    <span class="strip-item">Pollution Shield</span><span class="strip-dot">●</span>
+    <span class="strip-item">As Seen In GQ India</span><span class="strip-dot">●</span>
+    <span class="strip-item">Italian White Truffle</span><span class="strip-dot">●</span>
+    <span class="strip-item">Australian Lime Caviar</span><span class="strip-dot">●</span>
+    <span class="strip-item">Clinically Tested</span><span class="strip-dot">●</span>
+    <span class="strip-item">Formulated for Indian Skin</span><span class="strip-dot">●</span>
+    <span class="strip-item">No Parabens · No GMOs</span><span class="strip-dot">●</span>
+    <span class="strip-item">Pollution Shield</span><span class="strip-dot">●</span>
+    <span class="strip-item">As Seen In GQ India</span><span class="strip-dot">●</span>
+  </div>
+</div>
+
+<!-- ─── PRESS ─────────────────────────────────────── -->
+<section class="press">
+  <div class="press-label">As Seen In</div>
+  <div class="press-row">
+    <span class="press-name">GQ India</span>
+    <span class="press-name">Luxebook</span>
+    <span class="press-name">Good Homes</span>
+    <span class="press-name">Fashion Network</span>
+    <span class="press-name">Global Spa</span>
+    <span class="press-name">Couture Fashion</span>
+    <span class="press-name">The Look India</span>
+  </div>
+</section>
+
+<!-- ─── MANIFESTO ─────────────────────────────────── -->
+<section class="manifesto">
+  <div class="manifesto-left">
+    <div class="eyebrow manifesto-eyebrow">Our Position</div>
+    <h2 class="manifesto-headline">
+      Rare global ingredients.<br>
+      <strong>Indian skin logic.</strong>
+    </h2>
+    <p class="manifesto-body">
+      Every other skincare brand in India is using the same 40 commodity ingredients. They call it "premium." It isn't. Premium is Italian White Truffle. Premium is Australian Lime Caviar sourced from Queensland. Premium is formulated for your skin tone, your climate, and your reality — not copy-pasted from a European R&D sheet.
+    </p>
+    <p class="manifesto-body">
+      Viah is the only Indian skincare brand built around ingredients rare enough to appear on Michelin-starred menus — brought to your skincare routine at a fraction of what European luxury brands charge.
+    </p>
+    <a href="#ingredients" class="text-link">See every ingredient →</a>
+  </div>
+  <div class="manifesto-right">
+    <div class="pullquote-card">
+      <span class="pullquote-mark">"</span>
+      <p class="pullquote-text">Viah has replaced a product in my regime that was double the price. I couldn't be happier.</p>
+      <div class="pullquote-attr">Chandni · Jaipur · Verified Buyer</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── INGREDIENTS ───────────────────────────────── -->
+<section class="ingredients" id="ingredients">
+  <div class="ingredients-header">
+    <div class="ingredients-header-left">
+      <div class="eyebrow">The Ingredient Difference</div>
+      <h2 class="ingredients-headline">Seven rare ingredients.<br><strong>Zero compromise.</strong></h2>
+    </div>
+    <p class="ingredients-note">Every ingredient is chosen for proven efficacy on Indian skin — not availability or cost.</p>
+  </div>
+
+  <div class="ingredients-grid">
+    <!-- Featured -->
+    <div class="ing-card hero-ing ing-card-img">
+      <img class="ing-img" src="images/White_tuffel.png" alt="Italian White Truffle">
+      <div class="ing-card-body">
+        <div class="ing-tag">Hero Ingredient · Anti-Ageing</div>
+        <div class="ing-name">Italian White Truffle</div>
+        <div class="ing-desc">
+          One of the rarest fungi on earth. Rich in vitamins, amino acids, and antioxidants that visibly repair pigmentation, reduce fine lines, and restore skin luminosity. European luxury brands charge 10x for this. We don't.
+        </div>
+        <div class="ing-origin">Sourced from Northern Italy</div>
+      </div>
+    </div>
+
+    <div class="ing-card ing-card-img">
+      <img class="ing-img" src="images/Australian_Lime_Caviar.png" alt="Australian Lime Caviar">
+      <div class="ing-card-body">
+        <div class="ing-tag">Brightening</div>
+        <div class="ing-name">Australian Lime Caviar</div>
+        <div class="ing-desc">Natural vitamin C spheres that burst on contact. Controls sebum, clears acne scarring, brings visible clarity in weeks.</div>
+        <div class="ing-origin">Queensland, Australia</div>
+      </div>
+    </div>
+
+    <div class="ing-card ing-card-img">
+      <img class="ing-img" src="images/Rose_Myrtle_Berry.png" alt="Rose Myrtle Berry">
+      <div class="ing-card-body">
+        <div class="ing-tag">Antioxidant · Glow</div>
+        <div class="ing-name">Rose Myrtle Berry</div>
+        <div class="ing-desc">Exceptionally high antioxidant content. Shields against urban pollution. Restores the glow that Delhi air takes away.</div>
+        <div class="ing-origin">Wild-harvested, South India</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ingredients-grid ingredients-grid-secondary">
+    <div class="ing-card">
+      <div class="ing-tag">Firming · Instant Results</div>
+      <div class="ing-name">Easyliance</div>
+      <div class="ing-desc">Clinically proven tensing complex. Delivers visible skin tightening within 5 minutes of application — the science behind our bestseller.</div>
+      <div class="ing-origin">Biotechnology, France</div>
+    </div>
+
+    <div class="ing-card">
+      <div class="ing-tag">Deep Hydration</div>
+      <div class="ing-name">Aquaxyl</div>
+      <div class="ing-desc">Strengthens the skin's moisture barrier from within. Works with Indian skin's tendency toward dehydration in both humidity and dry cold.</div>
+      <div class="ing-origin">Biotechnology, Switzerland</div>
+    </div>
+
+    <div class="ing-card">
+      <div class="ing-tag">Urban Shield</div>
+      <div class="ing-name">Pollushield</div>
+      <div class="ing-desc">Invisible barrier against PM2.5 and blue light. Built specifically for Indian cities — Delhi, Mumbai, Bengaluru.</div>
+      <div class="ing-origin">Developed for Urban India</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRODUCTS ───────────────────────────────────── -->
+<section class="products" id="products">
+  <div class="section-header">
+    <div>
+      <div class="eyebrow">Bestsellers</div>
+      <h2 class="section-title">Start your <strong>ritual</strong></h2>
+    </div>
+    <a href="https://viahbeauty.com/collections/all-products" class="text-link">View all 18 products →</a>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card">
+      <div class="product-card-img-wrap">
+        <div class="product-badge">Bestseller</div>
+        <img
+          src="images/Instant_skin_tightening_serum.png"
+          alt="Instant Skin Tightening Serum"
+        >
+      </div>
+      <div class="product-info">
+        <div class="product-concern">Anti-Ageing · Firming</div>
+        <div class="product-name">Instant Skin Tightening Serum</div>
+        <div class="product-stars">
+          <span class="stars-icons">★★★★★</span>
+          <span class="review-n">251 reviews</span>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">from ₹1,749</span>
+          <button class="add-btn">Add to Bag</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card-img-wrap">
+        <div class="product-badge">Top Rated</div>
+        <img
+          src="images/High_performance_moisture_image.png"
+          alt="High Performance Moisturiser"
+        >
+      </div>
+      <div class="product-info">
+        <div class="product-concern">Anti-Ageing · White Truffle</div>
+        <div class="product-name">High Performance Moisturiser</div>
+        <div class="product-stars">
+          <span class="stars-icons">★★★★★</span>
+          <span class="review-n">237 reviews</span>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">from ₹2,149</span>
+          <button class="add-btn">Add to Bag</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card-img-wrap">
+        <img
+          src="images/Eye_countour_serum.png"
+          alt="Eye Contour Rejuvenating Serum"
+        >
+      </div>
+      <div class="product-info">
+        <div class="product-concern">Dark Circles · Puffiness</div>
+        <div class="product-name">Eye Contour Rejuvenating Serum</div>
+        <div class="product-stars">
+          <span class="stars-icons">★★★★★</span>
+          <span class="review-n">196 reviews</span>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">from ₹1,549</span>
+          <button class="add-btn">Add to Bag</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card">
+      <div class="product-card-img-wrap">
+        <div class="product-badge orange">New Formula</div>
+        <img
+          src="images/Triple_action_mositure.png"
+          alt="Triple Action Moisturiser"
+        >
+      </div>
+      <div class="product-info">
+        <div class="product-concern">Pigmentation · Brightening</div>
+        <div class="product-name">Triple Action Moisturiser</div>
+        <div class="product-stars">
+          <span class="stars-icons">★★★★★</span>
+          <span class="review-n">149 reviews</span>
+        </div>
+        <div class="product-footer">
+          <span class="product-price">₹1,399</span>
+          <button class="add-btn">Add to Bag</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROOF ──────────────────────────────────────── -->
+<section class="proof" id="proof">
+  <div class="proof-header">
+    <div class="eyebrow">Real Results</div>
+    <h2 class="proof-headline">Indian skin. <strong>Visible transformation.</strong></h2>
+    <p class="proof-sub">Over 630 verified reviews from women across India who switched to Viah.</p>
+  </div>
+
+  <div class="testimonials">
+    <div class="tcard">
+      <span class="tcard-mark">"</span>
+      <p class="tcard-text">The instant skin tightening serum is one of the finest serums I have ever used. With Easyliance and hyaluronic acid, my skin looks visibly plumper in just a few applications. It is a must buy.</p>
+      <div class="tcard-footer">
+        <div class="tcard-avatar">R</div>
+        <div>
+          <div class="tcard-name">Ratikka · Gurgaon</div>
+          <div class="tcard-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="tcard">
+      <span class="tcard-mark">"</span>
+      <p class="tcard-text">This serum gets absorbed easily. My skin looks brighter and clearer after only two weeks. It controls sebum and acne without drying — I've never found that combination anywhere else before.</p>
+      <div class="tcard-footer">
+        <div class="tcard-avatar">A</div>
+        <div>
+          <div class="tcard-name">Arushi · Delhi</div>
+          <div class="tcard-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+    <div class="tcard">
+      <span class="tcard-mark">"</span>
+      <p class="tcard-text">Viah is magic. The moisturiser is light, non-greasy, and has replaced the product I was using before — which cost double the price. I couldn't be happier after three weeks of use.</p>
+      <div class="tcard-footer">
+        <div class="tcard-avatar">C</div>
+        <div>
+          <div class="tcard-name">Chandni · Jaipur</div>
+          <div class="tcard-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-row">
+    <div class="stat-block">
+      <div class="stat-num">630<span>+</span></div>
+      <div class="stat-label">Verified Reviews</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">4.8<span>★</span></div>
+      <div class="stat-label">Average Rating</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">11</div>
+      <div class="stat-label">Press Features</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Rare Ingredients</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRUST ──────────────────────────────────────── -->
+<section class="trust">
+  <div class="trust-grid">
+    <div class="trust-text">
+      <div class="eyebrow">The Science Behind It</div>
+      <h2 class="trust-headline">Clinically tested.<br><strong>Not just claimed.</strong></h2>
+      <p class="trust-body">We don't use "clinically tested" as decoration. Every Viah product goes through independent efficacy trials before it reaches you — tested on Indian skin, in Indian conditions, because European data doesn't automatically translate to a different melanin profile.</p>
+      <p class="trust-body">We chose what to exclude with the same rigour: no mineral oil, no petrochem, no parabens, no GMOs, no synthetic dyes, no sulphates. Not because it's trendy. Because it's right.</p>
+      <div class="guarantee-box">
+        
+        <div class="guarantee-text">If you don't see a visible difference in 30 days, we will give you your money back. No questions asked.</div>
+      </div>
+    </div>
+    <div class="trust-badges">
+      <div class="tbadge">
+        
+        <div>
+          <div class="tbadge-title">Clinically Tested</div>
+          <div class="tbadge-desc">Independent efficacy trials on Indian skin in Indian conditions</div>
+        </div>
+      </div>
+      <div class="tbadge">
+        
+        <div>
+          <div class="tbadge-title">No Animal Testing</div>
+          <div class="tbadge-desc">Cruelty-free, always — not just when it's a marketing trend</div>
+        </div>
+      </div>
+      <div class="tbadge">
+        
+        <div>
+          <div class="tbadge-title">No Petrochem</div>
+          <div class="tbadge-desc">No mineral oil, no parabens, no sulfates, no synthetic dyes</div>
+        </div>
+      </div>
+      <div class="tbadge">
+        
+        <div>
+          <div class="tbadge-title">Globally Sourced</div>
+          <div class="tbadge-desc">Italy, Australia, France, Switzerland, and India</div>
+        </div>
+      </div>
+      <div class="tbadge">
+        
+        <div>
+          <div class="tbadge-title">No GMOs</div>
+          <div class="tbadge-desc">Every ingredient sourced in its natural, unmodified form</div>
+        </div>
+      </div>
+      <div class="tbadge">
+        
+        <div>
+          <div class="tbadge-title">Made for India</div>
+          <div class="tbadge-desc">Formulated for Indian climate, skin tone, and urban lifestyle</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── RITUAL ─────────────────────────────────────── -->
+<section class="ritual" id="ritual">
+  <div class="ritual-header">
+    <div class="eyebrow ritual-eyebrow">The 7-Minute Ritual</div>
+    <h2 class="ritual-headline">One complete routine.<br><strong>Morning to night.</strong></h2>
+    <p class="ritual-sub">Four steps. Seven minutes. The difference between skin that reacts and skin that performs.</p>
+  </div>
+  <div class="ritual-steps">
+    <div class="rstep" data-num="01">
+      <div class="rstep-time">Step One · AM + PM</div>
+      <div class="rstep-name">Cleanse</div>
+      <div class="rstep-desc">Start clean. Our pH-balanced cleansers remove the day without stripping your barrier — preparing skin to absorb everything that follows.</div>
+      <div class="rstep-product">Ultra-Clarifying Cleanser</div>
+    </div>
+    <div class="rstep" data-num="02">
+      <div class="rstep-time">Step Two · AM + PM</div>
+      <div class="rstep-name">Tone</div>
+      <div class="rstep-desc">Restore natural pH balance. Our toners prep your skin to receive actives — not just water them down before they hit.</div>
+      <div class="rstep-product">Miracle Glow Toner</div>
+    </div>
+    <div class="rstep" data-num="03">
+      <div class="rstep-time">Step Three · PM Focus</div>
+      <div class="rstep-name">Treat</div>
+      <div class="rstep-desc">This is where real work happens. Serums deliver White Truffle, Easyliance, and Aquaxyl directly to the dermal layer overnight.</div>
+      <div class="rstep-product">Instant Tightening Serum</div>
+    </div>
+    <div class="rstep" data-num="04">
+      <div class="rstep-time">Step Four · AM + PM</div>
+      <div class="rstep-name">Moisturise</div>
+      <div class="rstep-desc">Lock in everything you've applied. Italian White Truffle seals, nourishes, and completes the ritual so nothing is wasted.</div>
+      <div class="rstep-product">High Performance Moisturiser</div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA ────────────────────────────────────────── -->
+<section class="cta-band">
+  <span class="eyebrow">Your skin. Your ritual.</span>
+  <h2 class="cta-headline">Ready for the <strong>Truffle difference?</strong></h2>
+  <p class="cta-sub">Join 630+ Indian women who upgraded their skincare — without upgrading their budget to match European luxury prices.</p>
+  <div class="cta-actions">
+    <a href="https://viahbeauty.com/collections/all-products" class="btn-white">Shop Bestsellers</a>
+    <a href="#ritual" class="btn-outline-white">Build My Ritual</a>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─────────────────────────────────────── -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-logo">VIAH<span>.</span></span>
+      <p class="footer-tagline">India's only skincare brand built on Italian White Truffle and rare global ingredients, formulated specifically for Indian skin.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Shop</div>
+      <ul class="footer-links">
+        <li><a href="https://viahbeauty.com/collections/serum">Serums</a></li>
+        <li><a href="https://viahbeauty.com/collections/face-cream">Moisturisers</a></li>
+        <li><a href="https://viahbeauty.com/collections/cleanser">Cleansers</a></li>
+        <li><a href="https://viahbeauty.com/collections/toner">Toners</a></li>
+        <li><a href="https://viahbeauty.com/collections/eye-contour-care">Eye Care</a></li>
+        <li><a href="https://viahbeauty.com/products/full-spectrum-sunscreen-1">Sunscreen</a></li>
+        <li><a href="https://viahbeauty.com/collections/bundles-gift-sets-with-travel-pouch">Bundles</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Skin Concerns</div>
+      <ul class="footer-links">
+        <li><a href="https://viahbeauty.com/collections/ageing">Ageing</a></li>
+        <li><a href="https://viahbeauty.com/collections/pigmentation">Pigmentation</a></li>
+        <li><a href="https://viahbeauty.com/collections/acne-1">Acne</a></li>
+        <li><a href="https://viahbeauty.com/collections/glow-brightening">Glow</a></li>
+        <li><a href="https://viahbeauty.com/collections/eye-contour-care">Dark Circles</a></li>
+        <li><a href="https://viahbeauty.com/collections/sensitive-skin">Sensitive Skin</a></li>
+        <li><a href="https://viahbeauty.com/collections/pollushield">Pollution Shield</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="https://viahbeauty.com/pages/ingredients-page">Our Ingredients</a></li>
+        <li><a href="https://viahbeauty.com/pages/why-us">Why Viah</a></li>
+        <li><a href="https://viahbeauty.com/blogs/news">Editorial</a></li>
+        <li><a href="https://viahbeauty.com/pages/faq">FAQs</a></li>
+        <li><a href="https://viahbeauty.com/pages/contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Viah Beauty. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="https://viahbeauty.com/policies/privacy-policy">Privacy Policy</a>
+      <a href="https://viahbeauty.com/policies/terms-of-service">Terms of Service</a>
+      <a href="https://viahbeauty.com/policies/refund-policy">Refund Policy</a>
+      <a href="https://viahbeauty.com/policies/shipping-policy">Shipping Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
