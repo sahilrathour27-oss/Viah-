@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Viah Beauty — India's White Truffle Skincare</title>
 
-<!-- Montserrat for Gotham Extra Light feel, Raleway for Como SemiBold feel -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -13,7 +12,6 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  /* Core palette — built around Viah's actual navy product colour */
   --navy:        #1A2E5C;
   --navy-deep:   #0F1E3E;
   --navy-mid:    #243876;
@@ -28,10 +26,7 @@
   --text-mid:    #4B5563;
   --text-light:  #9CA3AF;
   --border:      #E5E3DE;
-
-  /* Typography — Gotham Extra Light feel = Montserrat 200 */
   --font-display: 'Montserrat', 'Gill Sans', sans-serif;
-  /* Como SemiBold feel = Raleway 600 */
   --font-heading: 'Raleway', 'Trebuchet MS', sans-serif;
   --font-body:    'Montserrat', sans-serif;
 }
@@ -46,7 +41,6 @@ body {
   line-height: 1.6;
 }
 
-/* ─── TYPOGRAPHY SYSTEM ──────────────────────────── */
 .eyebrow {
   font-family: var(--font-display);
   font-size: 10px;
@@ -78,7 +72,7 @@ body {
   line-height: 1.8;
 }
 
-/* ─── NAVIGATION ─────────────────────────────────── */
+/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   height: 68px;
@@ -129,7 +123,7 @@ nav {
 }
 .nav-btn:hover { background: var(--orange-warm); }
 
-/* ─── HERO ───────────────────────────────────────── */
+/* HERO */
 .hero {
   min-height: 100vh;
   padding-top: 68px;
@@ -140,7 +134,6 @@ nav {
   overflow: hidden;
 }
 
-/* Subtle geometric background */
 .hero::before {
   content: '';
   position: absolute;
@@ -245,7 +238,6 @@ nav {
   border-top: 1px solid rgba(255,255,255,0.08);
   display: flex; gap: 36px;
 }
-.hero-trust-item {}
 .hero-trust-num {
   font-family: var(--font-heading);
   font-weight: 600;
@@ -263,95 +255,20 @@ nav {
   color: rgba(255,255,255,0.35);
 }
 
-/* Hero right — real product showcase */
+/* FIX 1: Hero right — full bleed image */
 .hero-right {
   position: relative;
-  display: flex; align-items: center; justify-content: center;
   overflow: hidden;
-}
-.hero-product-bg {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(232,98,26,0.08) 0%, transparent 60%);
-}
-.hero-products-stack {
-  position: relative; z-index: 2;
-  display: flex; flex-direction: column;
-  gap: 0; width: 100%; height: 100%;
-}
-.hero-product-main {
-  flex: 1;
-  display: flex; align-items: center; justify-content: center;
-  padding: 40px;
-  position: relative;
-}
-.hero-product-img {
-  width: 220px;
-  height: 280px;
-  object-fit: contain;
-  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.5));
-  transition: transform 0.4s ease;
-}
-.hero-product-img:hover { transform: translateY(-8px) scale(1.02); }
-.hero-product-label {
-  position: absolute;
-  bottom: 32px; left: 32px; right: 32px;
-  background: rgba(26,46,92,0.85);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 16px 20px;
-  display: flex; justify-content: space-between; align-items: center;
-}
-.hero-product-label-name {
-  font-family: var(--font-display);
-  font-weight: 300;
-  font-size: 12px;
-  color: rgba(255,255,255,0.85);
-  letter-spacing: 0.04em;
-}
-.hero-product-label-price {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--orange);
-}
-.hero-mini-grid {
-  display: grid; grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
-.hero-mini-product {
-  padding: 20px 16px;
-  border-right: 1px solid rgba(255,255,255,0.06);
-  display: flex; flex-direction: column; align-items: center; gap: 10px;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-.hero-mini-product:last-child { border-right: none; }
-.hero-mini-product:hover { background: rgba(255,255,255,0.03); }
-.hero-mini-product img {
-  width: 52px; height: 64px; object-fit: contain;
-  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
-}
-.hero-mini-label {
-  font-family: var(--font-display);
-  font-size: 8px; font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  text-align: center;
-}
-.hero-main-only {
-  width: 100%; height: 100%;
-  padding: 0;
-  flex: 1;
 }
 .hero-main-img {
   display: block;
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  object-position: center center;
 }
 
-/* ─── MARQUEE STRIP ──────────────────────────────── */
+/* STRIP */
 .strip {
   background: var(--orange);
   padding: 14px 0;
@@ -383,7 +300,7 @@ nav {
   display: inline-flex; align-items: center;
 }
 
-/* ─── PRESS ──────────────────────────────────────── */
+/* PRESS */
 .press {
   background: var(--white);
   padding: 48px 80px;
@@ -409,7 +326,7 @@ nav {
 }
 .press-name:hover { color: var(--navy); }
 
-/* ─── POSITION / WHY VIAH ────────────────────────── */
+/* MANIFESTO */
 .manifesto {
   background: var(--off-white);
   padding: 100px 80px;
@@ -418,7 +335,6 @@ nav {
   gap: 80px;
   align-items: center;
 }
-.manifesto-left {}
 .manifesto-eyebrow { margin-bottom: 20px; }
 .manifesto-headline {
   font-family: var(--font-display);
@@ -454,7 +370,6 @@ nav {
 }
 .text-link:hover { opacity: 0.7; }
 
-.manifesto-right {}
 .pullquote-card {
   background: var(--navy);
   padding: 48px 44px;
@@ -494,7 +409,7 @@ nav {
   color: var(--orange);
 }
 
-/* ─── INGREDIENTS ────────────────────────────────── */
+/* INGREDIENTS */
 .ingredients {
   background: var(--navy-deep);
   padding: 100px 80px;
@@ -503,7 +418,6 @@ nav {
   display: flex; justify-content: space-between; align-items: flex-end;
   margin-bottom: 60px;
 }
-.ingredients-header-left {}
 .ingredients-headline {
   font-family: var(--font-display);
   font-weight: 200;
@@ -533,9 +447,57 @@ nav {
   gap: 2px;
   margin-bottom: 2px;
 }
-.ingredients-grid-secondary {
-  margin-bottom: 0;
+/* FIX 3: Image cards — full card is the image with overlaid text */
+.ing-card-img {
+  overflow: hidden;
+  position: relative;
+  cursor: default;
+  transition: border-color 0.25s;
 }
+.ing-card-img:hover { border-color: rgba(232,98,26,0.4); }
+.ing-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  display: block;
+}
+/* Overlay text sits on top of the image */
+.ing-card-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(10,18,40,0.95) 0%, rgba(10,18,40,0.7) 60%, transparent 100%);
+  padding: 28px 24px 24px;
+}
+.ing-tag {
+  font-family: var(--font-display);
+  font-size: 8px; font-weight: 500;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 6px;
+}
+.ing-name {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--white);
+  margin-bottom: 8px;
+  line-height: 1.2;
+}
+.ing-desc {
+  font-family: var(--font-display);
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 8px;
+}
+.ing-origin {
+  font-family: var(--font-display);
+  font-size: 9px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(232,98,26,0.75);
+}
+
+/* Secondary ingredient cards (no image) */
 .ing-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.07);
@@ -546,57 +508,11 @@ nav {
   background: rgba(255,255,255,0.07);
   border-color: rgba(232,98,26,0.4);
 }
-.ing-card.hero-ing {
-  background: rgba(232,98,26,0.1);
-  border-color: rgba(232,98,26,0.25);
-}
-.ing-card-img {
-  display: flex; flex-direction: column;
-  padding: 0;
-  overflow: hidden;
-}
-.ing-img {
-  width: 100%;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  display: block;
-}
-.ing-card-body {
-  padding: 28px 28px 32px;
-  display: flex; flex-direction: column;
-}
-.ing-icon { font-size: 40px; display: block; margin-bottom: 20px; }
-.ing-tag {
-  font-family: var(--font-display);
-  font-size: 8px; font-weight: 500;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--orange); margin-bottom: 10px;
-}
-.ing-name {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 20px;
-  color: var(--white);
-  margin-bottom: 14px;
-  line-height: 1.2;
-}
-.ing-card.hero-ing .ing-name { font-size: 26px; }
-.ing-desc {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 13px;
-  line-height: 1.75;
-  color: rgba(255,255,255,0.5);
-}
-.ing-origin {
-  margin-top: auto; padding-top: 24px;
-  font-family: var(--font-display);
-  font-size: 9px; font-weight: 400;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: rgba(232,98,26,0.55);
-}
+.ing-card .ing-tag { margin-bottom: 10px; }
+.ing-card .ing-name { font-size: 20px; margin-bottom: 14px; }
+.ing-card .ing-origin { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); }
 
-/* ─── PRODUCTS ───────────────────────────────────── */
+/* PRODUCTS */
 .products {
   background: var(--white);
   padding: 100px 80px;
@@ -643,9 +559,10 @@ nav {
   overflow: hidden;
   position: relative;
 }
+/* FIX 2: Product images scaled up to fill container better */
 .product-card-img-wrap img {
-  width: 75%;
-  height: 85%;
+  width: 90%;
+  height: 92%;
   object-fit: contain;
   transition: transform 0.4s ease;
 }
@@ -713,7 +630,7 @@ nav {
 }
 .add-btn:hover { background: var(--orange); }
 
-/* ─── SOCIAL PROOF ───────────────────────────────── */
+/* PROOF */
 .proof {
   background: var(--navy-light);
   padding: 100px 80px;
@@ -821,7 +738,7 @@ nav {
   line-height: 1.5;
 }
 
-/* ─── TRUST / SCIENCE ────────────────────────────── */
+/* TRUST */
 .trust {
   background: var(--white);
   padding: 100px 80px;
@@ -830,7 +747,6 @@ nav {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 80px; align-items: center;
 }
-.trust-text {}
 .trust-headline {
   font-family: var(--font-display);
   font-weight: 200;
@@ -860,7 +776,6 @@ nav {
   margin-top: 36px;
   border-left: 4px solid var(--orange);
 }
-.guarantee-icon { font-size: 28px; flex-shrink: 0; }
 .guarantee-text {
   font-family: var(--font-display);
   font-weight: 200;
@@ -880,7 +795,6 @@ nav {
   transition: background 0.2s;
 }
 .tbadge:hover { background: var(--navy-light); }
-.tbadge-icon { font-size: 26px; flex-shrink: 0; }
 .tbadge-title {
   font-family: var(--font-heading);
   font-weight: 600;
@@ -895,7 +809,7 @@ nav {
   line-height: 1.55;
 }
 
-/* ─── RITUAL / ROUTINE ───────────────────────────── */
+/* RITUAL */
 .ritual {
   background: var(--navy-deep);
   padding: 100px 80px;
@@ -979,7 +893,7 @@ nav {
   text-transform: uppercase;
 }
 
-/* ─── CTA BANNER ─────────────────────────────────── */
+/* CTA */
 .cta-band {
   background: var(--orange);
   padding: 80px;
@@ -1037,7 +951,7 @@ nav {
 }
 .btn-outline-white:hover { border-color: var(--white); }
 
-/* ─── FOOTER ─────────────────────────────────────── */
+/* FOOTER */
 footer {
   background: var(--navy-deep);
   padding: 72px 80px 36px;
@@ -1103,7 +1017,7 @@ footer {
 }
 .footer-legal a:hover { color: rgba(255,255,255,0.55); }
 
-/* ─── RESPONSIVE ─────────────────────────────────── */
+/* RESPONSIVE */
 @media (max-width: 960px) {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
@@ -1117,7 +1031,6 @@ footer {
   .ingredients-header { flex-direction: column; gap: 20px; align-items: flex-start; }
   .ingredients-note { text-align: left; max-width: 100%; }
   .ingredients-grid { grid-template-columns: 1fr; }
-  .ing-card.hero-ing { grid-row: auto; }
   .products { padding: 72px 24px; }
   .products-grid { grid-template-columns: repeat(2, 1fr); }
   .proof { padding: 72px 24px; }
@@ -1136,7 +1049,7 @@ footer {
 </head>
 <body>
 
-<!-- ─── NAV ─────────────────────────────────────── -->
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">VIAH<span>.</span></a>
   <ul class="nav-links">
@@ -1151,7 +1064,7 @@ footer {
   </div>
 </nav>
 
-<!-- ─── HERO ─────────────────────────────────────── -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-eyebrow">Crafted for Indian Skin</div>
@@ -1183,24 +1096,19 @@ footer {
     </div>
   </div>
 
+  <!-- FIX 1: Full-bleed hero image -->
   <div class="hero-right">
-    <div class="hero-product-bg"></div>
-    <div class="hero-products-stack">
-      <div class="hero-product-main hero-main-only">
-        <img
-          class="hero-main-img"
-          src="Main Header image.png"
-          alt="Viah Triple Action Moisturiser with Italian White Truffle"
-        >
-      </div>
-    </div>
+    <img
+      class="hero-main-img"
+      src="Main_Header_image.png"
+      alt="Viah Triple Action Moisturiser with Italian White Truffle"
+    >
   </div>
 </section>
 
-<!-- ─── STRIP ─────────────────────────────────────── -->
+<!-- STRIP -->
 <div class="strip">
   <div class="strip-inner">
-    <!-- doubled for seamless loop -->
     <span class="strip-item">Italian White Truffle</span><span class="strip-dot">●</span>
     <span class="strip-item">Australian Lime Caviar</span><span class="strip-dot">●</span>
     <span class="strip-item">Clinically Tested</span><span class="strip-dot">●</span>
@@ -1218,7 +1126,7 @@ footer {
   </div>
 </div>
 
-<!-- ─── PRESS ─────────────────────────────────────── -->
+<!-- PRESS -->
 <section class="press">
   <div class="press-label">As Seen In</div>
   <div class="press-row">
@@ -1232,7 +1140,7 @@ footer {
   </div>
 </section>
 
-<!-- ─── MANIFESTO ─────────────────────────────────── -->
+<!-- MANIFESTO -->
 <section class="manifesto">
   <div class="manifesto-left">
     <div class="eyebrow manifesto-eyebrow">Our Position</div>
@@ -1257,7 +1165,7 @@ footer {
   </div>
 </section>
 
-<!-- ─── INGREDIENTS ───────────────────────────────── -->
+<!-- INGREDIENTS -->
 <section class="ingredients" id="ingredients">
   <div class="ingredients-header">
     <div class="ingredients-header-left">
@@ -1267,23 +1175,21 @@ footer {
     <p class="ingredients-note">Every ingredient is chosen for proven efficacy on Indian skin — not availability or cost.</p>
   </div>
 
+  <!-- FIX 3: Image cards with overlay text only — no duplicate text below -->
   <div class="ingredients-grid">
-    <!-- Featured -->
-    <div class="ing-card hero-ing ing-card-img">
-      <img class="ing-img" src="White tuffel.png" alt="Italian White Truffle">
-      <div class="ing-card-body">
+    <div class="ing-card-img">
+      <img class="ing-img" src="1781350467987_image.png" alt="Italian White Truffle">
+      <div class="ing-card-overlay">
         <div class="ing-tag">Hero Ingredient · Anti-Ageing</div>
         <div class="ing-name">Italian White Truffle</div>
-        <div class="ing-desc">
-          One of the rarest fungi on earth. Rich in vitamins, amino acids, and antioxidants that visibly repair pigmentation, reduce fine lines, and restore skin luminosity. European luxury brands charge 10x for this. We don't.
-        </div>
+        <div class="ing-desc">One of the rarest fungi on earth. Rich in vitamins, amino acids, and antioxidants that visibly repair pigmentation, reduce fine lines, and restore skin luminosity.</div>
         <div class="ing-origin">Sourced from Northern Italy</div>
       </div>
     </div>
 
-    <div class="ing-card ing-card-img">
-      <img class="ing-img" src="Australian Lime Caviar.png" alt="Australian Lime Caviar">
-      <div class="ing-card-body">
+    <div class="ing-card-img">
+      <img class="ing-img" src="1781350482368_image.png" alt="Australian Lime Caviar">
+      <div class="ing-card-overlay">
         <div class="ing-tag">Brightening</div>
         <div class="ing-name">Australian Lime Caviar</div>
         <div class="ing-desc">Natural vitamin C spheres that burst on contact. Controls sebum, clears acne scarring, brings visible clarity in weeks.</div>
@@ -1291,9 +1197,9 @@ footer {
       </div>
     </div>
 
-    <div class="ing-card ing-card-img">
-      <img class="ing-img" src="Rose Myrtle Berry.png" alt="Rose Myrtle Berry">
-      <div class="ing-card-body">
+    <div class="ing-card-img">
+      <img class="ing-img" src="1781350497097_image.png" alt="Rose Myrtle Berry">
+      <div class="ing-card-overlay">
         <div class="ing-tag">Antioxidant · Glow</div>
         <div class="ing-name">Rose Myrtle Berry</div>
         <div class="ing-desc">Exceptionally high antioxidant content. Shields against urban pollution. Restores the glow that Delhi air takes away.</div>
@@ -1302,7 +1208,8 @@ footer {
     </div>
   </div>
 
-  <div class="ingredients-grid ingredients-grid-secondary">
+  <!-- Secondary ingredients (no image) — kept as-is -->
+  <div class="ingredients-grid">
     <div class="ing-card">
       <div class="ing-tag">Firming · Instant Results</div>
       <div class="ing-name">Easyliance</div>
@@ -1326,7 +1233,7 @@ footer {
   </div>
 </section>
 
-<!-- ─── PRODUCTS ───────────────────────────────────── -->
+<!-- PRODUCTS -->
 <section class="products" id="products">
   <div class="section-header">
     <div>
@@ -1340,10 +1247,7 @@ footer {
     <div class="product-card">
       <div class="product-card-img-wrap">
         <div class="product-badge">Bestseller</div>
-        <img
-          src="Instant skin tightening serum.png"
-          alt="Instant Skin Tightening Serum"
-        >
+        <img src="Instant_skin_tightening_serum.png" alt="Instant Skin Tightening Serum">
       </div>
       <div class="product-info">
         <div class="product-concern">Anti-Ageing · Firming</div>
@@ -1362,10 +1266,7 @@ footer {
     <div class="product-card">
       <div class="product-card-img-wrap">
         <div class="product-badge">Top Rated</div>
-        <img
-          src="High performance moisture image.png"
-          alt="High Performance Moisturiser"
-        >
+        <img src="High_performance_moisture_image.png" alt="High Performance Moisturiser">
       </div>
       <div class="product-info">
         <div class="product-concern">Anti-Ageing · White Truffle</div>
@@ -1383,10 +1284,7 @@ footer {
 
     <div class="product-card">
       <div class="product-card-img-wrap">
-        <img
-          src="Eye countour serum.png"
-          alt="Eye Contour Rejuvenating Serum"
-        >
+        <img src="Eye_countour_serum.png" alt="Eye Contour Rejuvenating Serum">
       </div>
       <div class="product-info">
         <div class="product-concern">Dark Circles · Puffiness</div>
@@ -1405,10 +1303,7 @@ footer {
     <div class="product-card">
       <div class="product-card-img-wrap">
         <div class="product-badge orange">New Formula</div>
-        <img
-          src="Triple action mositure.png"
-          alt="Triple Action Moisturiser"
-        >
+        <img src="Triple_action_mositure.png" alt="Triple Action Moisturiser">
       </div>
       <div class="product-info">
         <div class="product-concern">Pigmentation · Brightening</div>
@@ -1426,7 +1321,7 @@ footer {
   </div>
 </section>
 
-<!-- ─── PROOF ──────────────────────────────────────── -->
+<!-- PROOF -->
 <section class="proof" id="proof">
   <div class="proof-header">
     <div class="eyebrow">Real Results</div>
@@ -1490,7 +1385,7 @@ footer {
   </div>
 </section>
 
-<!-- ─── TRUST ──────────────────────────────────────── -->
+<!-- TRUST -->
 <section class="trust">
   <div class="trust-grid">
     <div class="trust-text">
@@ -1499,48 +1394,41 @@ footer {
       <p class="trust-body">We don't use "clinically tested" as decoration. Every Viah product goes through independent efficacy trials before it reaches you — tested on Indian skin, in Indian conditions, because European data doesn't automatically translate to a different melanin profile.</p>
       <p class="trust-body">We chose what to exclude with the same rigour: no mineral oil, no petrochem, no parabens, no GMOs, no synthetic dyes, no sulphates. Not because it's trendy. Because it's right.</p>
       <div class="guarantee-box">
-        
         <div class="guarantee-text">If you don't see a visible difference in 30 days, we will give you your money back. No questions asked.</div>
       </div>
     </div>
     <div class="trust-badges">
       <div class="tbadge">
-        
         <div>
           <div class="tbadge-title">Clinically Tested</div>
           <div class="tbadge-desc">Independent efficacy trials on Indian skin in Indian conditions</div>
         </div>
       </div>
       <div class="tbadge">
-        
         <div>
           <div class="tbadge-title">No Animal Testing</div>
           <div class="tbadge-desc">Cruelty-free, always — not just when it's a marketing trend</div>
         </div>
       </div>
       <div class="tbadge">
-        
         <div>
           <div class="tbadge-title">No Petrochem</div>
           <div class="tbadge-desc">No mineral oil, no parabens, no sulfates, no synthetic dyes</div>
         </div>
       </div>
       <div class="tbadge">
-        
         <div>
           <div class="tbadge-title">Globally Sourced</div>
           <div class="tbadge-desc">Italy, Australia, France, Switzerland, and India</div>
         </div>
       </div>
       <div class="tbadge">
-        
         <div>
           <div class="tbadge-title">No GMOs</div>
           <div class="tbadge-desc">Every ingredient sourced in its natural, unmodified form</div>
         </div>
       </div>
       <div class="tbadge">
-        
         <div>
           <div class="tbadge-title">Made for India</div>
           <div class="tbadge-desc">Formulated for Indian climate, skin tone, and urban lifestyle</div>
@@ -1550,7 +1438,7 @@ footer {
   </div>
 </section>
 
-<!-- ─── RITUAL ─────────────────────────────────────── -->
+<!-- RITUAL -->
 <section class="ritual" id="ritual">
   <div class="ritual-header">
     <div class="eyebrow ritual-eyebrow">The 7-Minute Ritual</div>
@@ -1585,7 +1473,7 @@ footer {
   </div>
 </section>
 
-<!-- ─── CTA ────────────────────────────────────────── -->
+<!-- CTA -->
 <section class="cta-band">
   <span class="eyebrow">Your skin. Your ritual.</span>
   <h2 class="cta-headline">Ready for the <strong>Truffle difference?</strong></h2>
@@ -1596,7 +1484,7 @@ footer {
   </div>
 </section>
 
-<!-- ─── FOOTER ─────────────────────────────────────── -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div>
