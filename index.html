@@ -123,34 +123,30 @@ nav {
 }
 .nav-btn:hover { background: var(--orange-warm); }
 
-/* HERO — FIX 1: 50/50 split for larger image presence */
+/* =============================================
+   HERO — FIXED
+   Image is 16:9 landscape (1672×941)
+   Hero uses 50/50 grid. Right side gets exact
+   viewport height minus nav, image covers it.
+   ============================================= */
 .hero {
-  min-height: 100vh;
-  padding-top: 68px;
+  min-height: calc(100vh - 68px);
+  margin-top: 68px;
   background: var(--navy-deep);
   display: grid;
-  grid-template-columns: 50% 50%;   /* was 55% 45% */
-  position: relative;
+  grid-template-columns: 50% 50%;
   overflow: hidden;
 }
 
 .hero::before {
   content: '';
   position: absolute;
-  top: -10%; right: -5%;
+  top: 68px; right: 0;
   width: 700px; height: 700px;
   border-radius: 50%;
   border: 1px solid rgba(232,98,26,0.1);
   pointer-events: none;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 5%; right: 10%;
-  width: 400px; height: 400px;
-  border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.04);
-  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-left {
@@ -255,17 +251,21 @@ nav {
   color: rgba(255,255,255,0.35);
 }
 
-/* Hero right — full bleed image */
+/* Hero right — 16:9 image fills the right column completely */
 .hero-right {
   position: relative;
   overflow: hidden;
+  /* stretch to fill grid row height */
+  min-height: calc(100vh - 68px);
 }
 .hero-main-img {
-  display: block;
+  position: absolute;
+  top: 0; left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;        /* 16:9 image covers 50% wide column — crops slightly top/bottom, product stays visible */
   object-position: center center;
+  display: block;
 }
 
 /* STRIP */
@@ -409,7 +409,12 @@ nav {
   color: var(--orange);
 }
 
-/* INGREDIENTS */
+/* =============================================
+   INGREDIENTS — FIXED
+   Images are 1:1 square (1254×1254).
+   Container uses aspect-ratio: 1/1.
+   NO overlay div — text is baked into images.
+   ============================================= */
 .ingredients {
   background: var(--navy-deep);
   padding: 100px 80px;
@@ -448,40 +453,45 @@ nav {
   margin-bottom: 2px;
 }
 
-/* FIX 5: Image ingredient cards — fixed height for premium look */
+/* Ingredient image cards — 1:1 square, no overlay, no text */
 .ing-card-img {
   overflow: hidden;
   position: relative;
   cursor: default;
-  height: 650px;           /* fixed height for premium luxury feel */
-  transition: border-color 0.25s;
+  aspect-ratio: 1 / 1;     /* images are 1254×1254 — exact 1:1 */
+  width: 100%;
 }
-.ing-card-img:hover { border-color: rgba(232,98,26,0.4); }
 .ing-img {
   width: 100%;
-  height: 100%;            /* fill the fixed-height container */
-  object-fit: cover;
+  height: 100%;
+  object-fit: cover;        /* fill the square, no crop needed since image IS square */
   display: block;
 }
-/* Overlay text sits on top of the image */
-.ing-card-overlay {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: linear-gradient(to top, rgba(10,18,40,0.95) 0%, rgba(10,18,40,0.7) 60%, transparent 100%);
-  padding: 28px 24px 24px;
+/* NO .ing-card-overlay — text is already inside the images */
+
+/* Secondary ingredient cards (text only, no image) */
+.ing-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 36px 32px;
+  transition: border-color 0.25s, background 0.25s;
+}
+.ing-card:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(232,98,26,0.4);
 }
 .ing-tag {
   font-family: var(--font-display);
   font-size: 8px; font-weight: 500;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--orange); margin-bottom: 6px;
+  color: var(--orange); margin-bottom: 10px;
 }
 .ing-name {
   font-family: var(--font-heading);
   font-weight: 600;
-  font-size: 18px;
+  font-size: 20px;
   color: var(--white);
-  margin-bottom: 8px;
+  margin-bottom: 14px;
   line-height: 1.2;
 }
 .ing-desc {
@@ -497,24 +507,18 @@ nav {
   font-size: 9px; font-weight: 400;
   letter-spacing: 0.14em; text-transform: uppercase;
   color: rgba(232,98,26,0.75);
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
 
-/* Secondary ingredient cards (no image) */
-.ing-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
-  padding: 36px 32px;
-  transition: border-color 0.25s, background 0.25s;
-}
-.ing-card:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(232,98,26,0.4);
-}
-.ing-card .ing-tag { margin-bottom: 10px; }
-.ing-card .ing-name { font-size: 20px; margin-bottom: 14px; }
-.ing-card .ing-origin { margin-top: 24px; padding-top: 18px; border-top: 1px solid rgba(255,255,255,0.08); }
-
-/* PRODUCTS */
+/* =============================================
+   PRODUCTS — FIXED
+   Images are 9:16 portrait (941×1672).
+   Container uses aspect-ratio: 9/16.
+   object-fit: contain — show full bottle, no crop.
+   Background keeps the dark blue from the product images.
+   ============================================= */
 .products {
   background: var(--white);
   padding: 100px 80px;
@@ -548,6 +552,8 @@ nav {
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .product-card:hover {
   transform: translateY(-4px);
@@ -555,23 +561,24 @@ nav {
   z-index: 2;
 }
 
-/* FIX 2 & 6: Fixed height container instead of aspect-ratio — makes products look larger */
+/* 9:16 container — matches product image ratio exactly */
 .product-card-img-wrap {
-  height: 450px;           /* was aspect-ratio: 3/4 */
-  background: var(--cream);
-  display: flex; align-items: center; justify-content: center;
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  background: #0a0f2e;      /* matches the dark blue background of product images */
   overflow: hidden;
   position: relative;
+  flex-shrink: 0;
 }
-/* FIX 2: contain keeps full bottle visible; source PNGs need minimal padding */
 .product-card-img-wrap img {
   width: 100%;
   height: 100%;
-  object-fit: contain;     /* contain = no crop; fix transparent padding in source PNGs */
+  object-fit: contain;      /* contain = full bottle visible, no crop */
+  display: block;
   transition: transform 0.4s ease;
 }
 .product-card:hover .product-card-img-wrap img {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 .product-badge {
   position: absolute; top: 14px; left: 14px;
@@ -586,6 +593,7 @@ nav {
 .product-badge.orange { background: var(--orange); }
 .product-info {
   padding: 22px 22px 26px;
+  flex: 1;
 }
 .product-concern {
   font-family: var(--font-display);
@@ -1025,7 +1033,7 @@ footer {
 @media (max-width: 960px) {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero { grid-template-columns: 1fr; }
   .hero-left { padding: 60px 24px; }
   .hero-right { display: none; }
   .press { padding: 40px 24px; }
@@ -1035,10 +1043,8 @@ footer {
   .ingredients-header { flex-direction: column; gap: 20px; align-items: flex-start; }
   .ingredients-note { text-align: left; max-width: 100%; }
   .ingredients-grid { grid-template-columns: 1fr; }
-  .ing-card-img { height: 480px; }  /* slightly shorter on mobile */
   .products { padding: 72px 24px; }
   .products-grid { grid-template-columns: repeat(2, 1fr); }
-  .product-card-img-wrap { height: 320px; }
   .proof { padding: 72px 24px; }
   .testimonials { grid-template-columns: 1fr; }
   .stats-row { grid-template-columns: repeat(2, 1fr); }
@@ -1181,34 +1187,15 @@ footer {
   </div>
 
   <div class="ingredients-grid">
+    <!-- Images are 1254x1254 (1:1 square). Text is baked into images. NO overlay needed. -->
     <div class="ing-card-img">
       <img class="ing-img" src="White tuffel.png" alt="Italian White Truffle">
-      <div class="ing-card-overlay">
-        <div class="ing-tag">Hero Ingredient · Anti-Ageing</div>
-        <div class="ing-name">Italian White Truffle</div>
-        <div class="ing-desc">One of the rarest fungi on earth. Rich in vitamins, amino acids, and antioxidants that visibly repair pigmentation, reduce fine lines, and restore skin luminosity.</div>
-        <div class="ing-origin">Sourced from Northern Italy</div>
-      </div>
     </div>
-
     <div class="ing-card-img">
       <img class="ing-img" src="Australian Lime Caviar.png" alt="Australian Lime Caviar">
-      <div class="ing-card-overlay">
-        <div class="ing-tag">Brightening</div>
-        <div class="ing-name">Australian Lime Caviar</div>
-        <div class="ing-desc">Natural vitamin C spheres that burst on contact. Controls sebum, clears acne scarring, brings visible clarity in weeks.</div>
-        <div class="ing-origin">Queensland, Australia</div>
-      </div>
     </div>
-
     <div class="ing-card-img">
       <img class="ing-img" src="Rose Myrtle Berry.png" alt="Rose Myrtle Berry">
-      <div class="ing-card-overlay">
-        <div class="ing-tag">Antioxidant · Glow</div>
-        <div class="ing-name">Rose Myrtle Berry</div>
-        <div class="ing-desc">Exceptionally high antioxidant content. Shields against urban pollution. Restores the glow that Delhi air takes away.</div>
-        <div class="ing-origin">Wild-harvested, South India</div>
-      </div>
     </div>
   </div>
 
@@ -1219,14 +1206,12 @@ footer {
       <div class="ing-desc">Clinically proven tensing complex. Delivers visible skin tightening within 5 minutes of application — the science behind our bestseller.</div>
       <div class="ing-origin">Biotechnology, France</div>
     </div>
-
     <div class="ing-card">
       <div class="ing-tag">Deep Hydration</div>
       <div class="ing-name">Aquaxyl</div>
       <div class="ing-desc">Strengthens the skin's moisture barrier from within. Works with Indian skin's tendency toward dehydration in both humidity and dry cold.</div>
       <div class="ing-origin">Biotechnology, Switzerland</div>
     </div>
-
     <div class="ing-card">
       <div class="ing-tag">Urban Shield</div>
       <div class="ing-name">Pollushield</div>
@@ -1331,7 +1316,6 @@ footer {
     <h2 class="proof-headline">Indian skin. <strong>Visible transformation.</strong></h2>
     <p class="proof-sub">Over 630 verified reviews from women across India who switched to Viah.</p>
   </div>
-
   <div class="testimonials">
     <div class="tcard">
       <span class="tcard-mark">"</span>
@@ -1367,7 +1351,6 @@ footer {
       </div>
     </div>
   </div>
-
   <div class="stats-row">
     <div class="stat-block">
       <div class="stat-num">630<span>+</span></div>
@@ -1401,42 +1384,12 @@ footer {
       </div>
     </div>
     <div class="trust-badges">
-      <div class="tbadge">
-        <div>
-          <div class="tbadge-title">Clinically Tested</div>
-          <div class="tbadge-desc">Independent efficacy trials on Indian skin in Indian conditions</div>
-        </div>
-      </div>
-      <div class="tbadge">
-        <div>
-          <div class="tbadge-title">No Animal Testing</div>
-          <div class="tbadge-desc">Cruelty-free, always — not just when it's a marketing trend</div>
-        </div>
-      </div>
-      <div class="tbadge">
-        <div>
-          <div class="tbadge-title">No Petrochem</div>
-          <div class="tbadge-desc">No mineral oil, no parabens, no sulfates, no synthetic dyes</div>
-        </div>
-      </div>
-      <div class="tbadge">
-        <div>
-          <div class="tbadge-title">Globally Sourced</div>
-          <div class="tbadge-desc">Italy, Australia, France, Switzerland, and India</div>
-        </div>
-      </div>
-      <div class="tbadge">
-        <div>
-          <div class="tbadge-title">No GMOs</div>
-          <div class="tbadge-desc">Every ingredient sourced in its natural, unmodified form</div>
-        </div>
-      </div>
-      <div class="tbadge">
-        <div>
-          <div class="tbadge-title">Made for India</div>
-          <div class="tbadge-desc">Formulated for Indian climate, skin tone, and urban lifestyle</div>
-        </div>
-      </div>
+      <div class="tbadge"><div><div class="tbadge-title">Clinically Tested</div><div class="tbadge-desc">Independent efficacy trials on Indian skin in Indian conditions</div></div></div>
+      <div class="tbadge"><div><div class="tbadge-title">No Animal Testing</div><div class="tbadge-desc">Cruelty-free, always — not just when it's a marketing trend</div></div></div>
+      <div class="tbadge"><div><div class="tbadge-title">No Petrochem</div><div class="tbadge-desc">No mineral oil, no parabens, no sulfates, no synthetic dyes</div></div></div>
+      <div class="tbadge"><div><div class="tbadge-title">Globally Sourced</div><div class="tbadge-desc">Italy, Australia, France, Switzerland, and India</div></div></div>
+      <div class="tbadge"><div><div class="tbadge-title">No GMOs</div><div class="tbadge-desc">Every ingredient sourced in its natural, unmodified form</div></div></div>
+      <div class="tbadge"><div><div class="tbadge-title">Made for India</div><div class="tbadge-desc">Formulated for Indian climate, skin tone, and urban lifestyle</div></div></div>
     </div>
   </div>
 </section>
