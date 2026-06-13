@@ -123,13 +123,13 @@ nav {
 }
 .nav-btn:hover { background: var(--orange-warm); }
 
-/* HERO */
+/* HERO — FIX 1: 50/50 split for larger image presence */
 .hero {
   min-height: 100vh;
   padding-top: 68px;
   background: var(--navy-deep);
   display: grid;
-  grid-template-columns: 55% 45%;
+  grid-template-columns: 50% 50%;   /* was 55% 45% */
   position: relative;
   overflow: hidden;
 }
@@ -255,7 +255,7 @@ nav {
   color: rgba(255,255,255,0.35);
 }
 
-/* FIX 1: Hero right — full bleed image */
+/* Hero right — full bleed image */
 .hero-right {
   position: relative;
   overflow: hidden;
@@ -447,17 +447,19 @@ nav {
   gap: 2px;
   margin-bottom: 2px;
 }
-/* FIX 3: Image cards — full card is the image with overlaid text */
+
+/* FIX 5: Image ingredient cards — fixed height for premium look */
 .ing-card-img {
   overflow: hidden;
   position: relative;
   cursor: default;
+  height: 650px;           /* fixed height for premium luxury feel */
   transition: border-color 0.25s;
 }
 .ing-card-img:hover { border-color: rgba(232,98,26,0.4); }
 .ing-img {
   width: 100%;
-  aspect-ratio: 3/4;
+  height: 100%;            /* fill the fixed-height container */
   object-fit: cover;
   display: block;
 }
@@ -552,18 +554,20 @@ nav {
   box-shadow: 0 16px 48px rgba(26,46,92,0.12);
   z-index: 2;
 }
+
+/* FIX 2 & 6: Fixed height container instead of aspect-ratio — makes products look larger */
 .product-card-img-wrap {
-  aspect-ratio: 3/4;
+  height: 450px;           /* was aspect-ratio: 3/4 */
   background: var(--cream);
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
   position: relative;
 }
-/* FIX 2: Product images scaled up to fill container better */
+/* FIX 2: contain keeps full bottle visible; source PNGs need minimal padding */
 .product-card-img-wrap img {
-  width: 90%;
-  height: 92%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;     /* contain = no crop; fix transparent padding in source PNGs */
   transition: transform 0.4s ease;
 }
 .product-card:hover .product-card-img-wrap img {
@@ -1031,8 +1035,10 @@ footer {
   .ingredients-header { flex-direction: column; gap: 20px; align-items: flex-start; }
   .ingredients-note { text-align: left; max-width: 100%; }
   .ingredients-grid { grid-template-columns: 1fr; }
+  .ing-card-img { height: 480px; }  /* slightly shorter on mobile */
   .products { padding: 72px 24px; }
   .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .product-card-img-wrap { height: 320px; }
   .proof { padding: 72px 24px; }
   .testimonials { grid-template-columns: 1fr; }
   .stats-row { grid-template-columns: repeat(2, 1fr); }
@@ -1096,7 +1102,6 @@ footer {
     </div>
   </div>
 
-  <!-- FIX 1: Full-bleed hero image -->
   <div class="hero-right">
     <img
       class="hero-main-img"
@@ -1175,7 +1180,6 @@ footer {
     <p class="ingredients-note">Every ingredient is chosen for proven efficacy on Indian skin — not availability or cost.</p>
   </div>
 
-  <!-- FIX 3: Image cards with overlay text only — no duplicate text below -->
   <div class="ingredients-grid">
     <div class="ing-card-img">
       <img class="ing-img" src="White tuffel.png" alt="Italian White Truffle">
@@ -1208,7 +1212,6 @@ footer {
     </div>
   </div>
 
-  <!-- Secondary ingredients (no image) — kept as-is -->
   <div class="ingredients-grid">
     <div class="ing-card">
       <div class="ing-tag">Firming · Instant Results</div>
