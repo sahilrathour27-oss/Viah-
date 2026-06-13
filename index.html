@@ -1128,28 +1128,47 @@ footer {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
 
-  /* ── HERO: mobile tweaks ── */
+  /* ── HERO: mobile ── */
+  .hero-main-img {
+    object-position: center 30%; /* push jar to bottom half of screen */
+  }
+
   .hero::after {
+    /* Top 55% is near-solid dark → text always readable
+       Bottom fades out so product image is visible below text */
     background: linear-gradient(
       to bottom,
-      rgba(4, 7, 20, 0.94) 0%,
-      rgba(4, 7, 20, 0.75) 50%,
-      rgba(4, 7, 20, 0.94) 100%
+      rgba(4, 7, 20, 0.97) 0%,
+      rgba(4, 7, 20, 0.97) 45%,
+      rgba(4, 7, 20, 0.70) 65%,
+      rgba(4, 7, 20, 0.30) 100%
     );
   }
 
-  .hero-main-img {
-    object-position: 65% center;
-  }
-
   .hero-left {
-    justify-content: flex-end;
-    padding: 80px 24px 48px;
+    justify-content: flex-start;
+    padding: 48px 24px 48px;
     max-width: 100%;
-    min-height: 100vh;
+    min-height: calc(100vh - 68px);
   }
 
   .hero-headline { font-size: clamp(40px, 11vw, 60px); }
+
+  /* Mobile text contrast — bump opacity on all muted text */
+  .hero-sub {
+    color: rgba(255,255,255,0.82);
+    font-size: 15px;
+  }
+  .hero-frustration-text {
+    color: rgba(255,255,255,0.75);
+  }
+  .hero-guarantee-text {
+    color: rgba(255,255,255,0.90);
+  }
+  .hero-trust-label {
+    color: rgba(255,255,255,0.55);
+  }
+
   .hero-sub { max-width: 100%; }
 
   .hero-actions {
