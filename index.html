@@ -104,15 +104,34 @@ nav {
   min-height: calc(100vh - 68px);
   margin-top: 68px;
   background: var(--navy-deep);
-  display: grid;
-  grid-template-columns: 55% 45%;
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
+  display: block;
 }
+
+/* Dark overlay layer — sits between image and text on ALL screens */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to right,
+    rgba(10, 18, 48, 0.88) 0%,
+    rgba(10, 18, 48, 0.62) 55%,
+    rgba(10, 18, 48, 0.32) 100%
+  );
+}
+
 .hero-left {
-  display: flex; flex-direction: column; justify-content: center;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 80px 56px 80px 80px;
-  position: relative; z-index: 2;
+  max-width: 680px;
+  min-height: calc(100vh - 68px);
 }
 
 .hero-frustration-bar {
@@ -177,7 +196,7 @@ nav {
   margin: 28px 0 36px;
   padding: 14px 18px;
   border-left: 2px solid var(--orange);
-  background: rgba(232,98,26,0.06);
+  background: rgba(232,98,26,0.8);
 }
 .hero-guarantee-text {
   font-family: var(--font-gotham);
@@ -243,11 +262,13 @@ nav {
 }
 
 .hero-right {
-  position: relative;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
   overflow: hidden;
-  min-height: calc(100vh - 68px);
 }
 .hero-main-img {
+   filter: brightness(0.45);
   position: absolute;
   top: 0; left: 0;
   width: 100%; height: 100%;
@@ -1103,15 +1124,71 @@ footer {
 @media (max-width: 960px) {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
-  .hero { grid-template-columns: 1fr; }
-  .hero-left { padding: 60px 24px 48px; }
-  .hero-right { display: none; }
+
+  /* ── HERO: mobile tweaks (image already full-bleed on all screens) ── */
+  .hero::after {
+    /* on mobile shift gradient to vertical so it works portrait */
+    background: linear-gradient(
+      to bottom,
+      rgba(10, 18, 48, 0.78) 0%,
+      rgba(10, 18, 48, 0.52) 45%,
+      rgba(10, 18, 48, 0.90) 100%
+    );
+  }
+
+  .hero-main-img {
+    object-position: 70% center; /* keep jar visible on narrow screens */
+  }
+
+  .hero-left {
+    justify-content: flex-end;
+    padding: 80px 24px 48px;
+    max-width: 100%;
+    min-height: 100vh;
+  }
+
+  .hero-headline { font-size: clamp(40px, 11vw, 60px); }
+  .hero-sub { max-width: 100%; }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .btn-orange { width: 100%; text-align: center; }
+  .hero-trust-row { gap: 20px; }
+
+  /* ── PRODUCT CARDS: 1 per row + fixed footer layout ── */
+  .finder-results { grid-template-columns: 1fr; }
+
+  .product-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .add-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px 18px;
+    letter-spacing: 0.12em;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+  .product-concern {
+    font-size: 8px;
+    letter-spacing: 0.12em;
+    white-space: normal;
+    line-height: 1.5;
+  }
+  .product-name { font-size: 15px; }
+  .product-info { padding: 16px 14px 18px; }
+
+  /* ── OTHER SECTIONS ── */
   .press { padding: 40px 24px; }
   .press-row { gap: 24px; }
   .frustration { padding: 72px 24px; }
   .frustration-grid { grid-template-columns: 1fr; gap: 40px; }
   .finder { padding: 60px 24px; }
-  .finder-results { grid-template-columns: repeat(2, 1fr); }
   .ingredients { padding: 72px 24px; }
   .ingredients-header { flex-direction: column; gap: 16px; align-items: flex-start; }
   .ingredients-note { text-align: left; max-width: 100%; }
@@ -1149,6 +1226,13 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
+
+  <!-- Image: sits in the right column on desktop; becomes full-bleed bg on mobile -->
+  <div class="hero-right">
+    <img class="hero-main-img" src="backgroundimage.png" alt="Viah White Truffle Skincare">
+  </div>
+
+  <!-- Text: left column on desktop; overlaid on image on mobile -->
   <div class="hero-left">
 
     <div class="hero-frustration-bar">
@@ -1193,9 +1277,6 @@ footer {
     </div>
   </div>
 
-  <div class="hero-right">
-    <img class="hero-main-img" src="Main Header image.png" alt="Viah White Truffle Skincare">
-  </div>
 </section>
 
 <!-- STRIP -->
@@ -1666,7 +1747,9 @@ footer {
           if (show) visible++;
         });
 
-        if (visible === 1)      results.style.gridTemplateColumns = 'repeat(1, 340px)';
+        if (window.innerWidth <= 960) {
+          results.style.gridTemplateColumns = '1fr';
+        } else if (visible === 1)      results.style.gridTemplateColumns = 'repeat(1, 340px)';
         else if (visible === 2) results.style.gridTemplateColumns = 'repeat(2, 1fr)';
         else if (visible === 3) results.style.gridTemplateColumns = 'repeat(3, 1fr)';
         else                    results.style.gridTemplateColumns = 'repeat(4, 1fr)';
