@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Viah Beauty — India's White Truffle Skincare</title>
+<title>Viah Beauty — Finally, Something That Shows.</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -26,14 +26,15 @@
   --text-mid:    #4B5563;
   --text-light:  #9CA3AF;
   --border:      #E5E3DE;
-  --font-display: 'Montserrat', 'Gill Sans', sans-serif;
-  --font-heading: 'Raleway', 'Trebuchet MS', sans-serif;
-  --font-body:    'Montserrat', sans-serif;
+
+  /* Type system — Cormorant for editorial voice, Montserrat for clarity */
+  --font-editorial: 'Cormorant Garamond', 'Georgia', serif;
+  --font-utility:   'Montserrat', sans-serif;
 }
 
 html { scroll-behavior: smooth; }
 body {
-  font-family: var(--font-body);
+  font-family: var(--font-utility);
   font-weight: 300;
   background: var(--white);
   color: var(--text);
@@ -41,52 +42,22 @@ body {
   line-height: 1.6;
 }
 
-.eyebrow {
-  font-family: var(--font-display);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--orange);
-}
-.display-xl {
-  font-family: var(--font-display);
-  font-weight: 200;
-  line-height: 1.06;
-  letter-spacing: -0.02em;
-}
-.heading-lg {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-}
-.heading-md {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  line-height: 1.2;
-}
-.body-light {
-  font-family: var(--font-display);
-  font-weight: 200;
-  line-height: 1.8;
-}
-
-/* NAV */
+/* ── NAV ── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   height: 68px;
-  background: var(--white);
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
   display: flex; align-items: center;
   padding: 0 60px;
   gap: 48px;
 }
 .nav-logo {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-weight: 200;
-  font-size: 26px;
-  letter-spacing: 0.28em;
+  font-size: 24px;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
   color: var(--navy);
   text-decoration: none;
@@ -97,13 +68,10 @@ nav {
   display: flex; gap: 36px; list-style: none; flex: 1;
 }
 .nav-links a {
-  font-family: var(--font-display);
-  font-size: 11px;
-  font-weight: 400;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-mid);
-  text-decoration: none;
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--text-mid); text-decoration: none;
   transition: color 0.2s;
 }
 .nav-links a:hover { color: var(--navy); }
@@ -112,102 +80,122 @@ nav {
   background: var(--orange);
   color: var(--white);
   padding: 10px 26px;
-  font-family: var(--font-display);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
   text-decoration: none;
   transition: background 0.2s;
   border-radius: 2px;
 }
 .nav-btn:hover { background: var(--orange-warm); }
 
-/* =============================================
-   HERO — FIXED
-   Image is 16:9 landscape (1672×941)
-   Hero uses 50/50 grid. Right side gets exact
-   viewport height minus nav, image covers it.
-   ============================================= */
+/* ── HERO ── */
 .hero {
   min-height: calc(100vh - 68px);
   margin-top: 68px;
   background: var(--navy-deep);
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 55% 45%;
   overflow: hidden;
+  position: relative;
 }
-
-.hero::before {
-  content: '';
-  position: absolute;
-  top: 68px; right: 0;
-  width: 700px; height: 700px;
-  border-radius: 50%;
-  border: 1px solid rgba(232,98,26,0.1);
-  pointer-events: none;
-  z-index: 0;
-}
-
 .hero-left {
   display: flex; flex-direction: column; justify-content: center;
   padding: 80px 56px 80px 80px;
   position: relative; z-index: 2;
 }
-.hero-eyebrow {
-  font-family: var(--font-display);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 28px;
-  display: flex; align-items: center; gap: 12px;
+
+/* The emotional opening — not a product claim, her feeling */
+.hero-frustration-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(232,98,26,0.12);
+  border: 1px solid rgba(232,98,26,0.25);
+  border-radius: 2px;
+  padding: 9px 16px;
+  margin-bottom: 36px;
+  width: fit-content;
 }
-.hero-eyebrow::before {
-  content: '';
-  display: block; width: 32px; height: 1px;
+.hero-frustration-dot {
+  width: 6px; height: 6px;
   background: var(--orange);
+  border-radius: 50%;
+  flex-shrink: 0;
 }
+.hero-frustration-text {
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+/* Headline — editorial serif for weight, "shows" in orange for the outcome */
 .hero-headline {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: clamp(48px, 5vw, 72px);
-  line-height: 1.06;
-  letter-spacing: -0.02em;
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: clamp(52px, 5.8vw, 82px);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
   color: var(--white);
-  margin-bottom: 12px;
+  margin-bottom: 0;
+}
+.hero-headline-word {
+  display: block;
 }
 .hero-headline-accent {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: clamp(52px, 5.5vw, 78px);
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-style: italic;
   color: var(--orange);
-  display: block;
-  line-height: 1.0;
-  letter-spacing: -0.02em;
 }
+
 .hero-sub {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-weight: 200;
-  font-size: 15px;
-  line-height: 1.8;
-  color: rgba(255,255,255,0.55);
-  max-width: 440px;
-  margin: 28px 0 48px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.5);
+  max-width: 400px;
+  margin: 28px 0 0;
 }
+
+/* Guarantee in hero — answers anxiety before CTA */
+.hero-guarantee {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 28px 0 36px;
+  padding: 14px 18px;
+  border-left: 2px solid var(--orange);
+  background: rgba(232,98,26,0.06);
+}
+.hero-guarantee-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.hero-guarantee-text {
+  font-family: var(--font-utility);
+  font-size: 11px; font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+}
+.hero-guarantee-text strong {
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+}
+
 .hero-actions {
-  display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+  display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  margin-bottom: 48px;
 }
 .btn-orange {
   background: var(--orange);
   color: var(--white);
-  padding: 14px 36px;
-  font-family: var(--font-display);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  padding: 14px 32px;
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
   text-decoration: none;
   border-radius: 2px;
   display: inline-block;
@@ -215,235 +203,397 @@ nav {
 }
 .btn-orange:hover { background: var(--orange-warm); transform: translateY(-1px); }
 .btn-ghost-white {
-  color: rgba(255,255,255,0.55);
-  font-family: var(--font-display);
-  font-size: 10px;
-  font-weight: 400;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
   text-decoration: none;
-  border-bottom: 1px solid rgba(255,255,255,0.25);
+  border-bottom: 1px solid rgba(255,255,255,0.2);
   padding-bottom: 2px;
   transition: color 0.2s, border-color 0.2s;
 }
-.btn-ghost-white:hover { color: var(--white); border-color: rgba(255,255,255,0.6); }
+.btn-ghost-white:hover { color: var(--white); border-color: rgba(255,255,255,0.5); }
 
 .hero-trust-row {
-  margin-top: 52px;
   padding-top: 32px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  border-top: 1px solid rgba(255,255,255,0.07);
   display: flex; gap: 36px;
 }
 .hero-trust-num {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 28px;
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: 32px;
   color: var(--white);
   line-height: 1;
   margin-bottom: 4px;
+  letter-spacing: -0.01em;
 }
+.hero-trust-num span { color: var(--orange); font-size: 18px; }
 .hero-trust-label {
-  font-family: var(--font-display);
-  font-size: 9px;
-  font-weight: 400;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
+  font-family: var(--font-utility);
+  font-size: 9px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
 }
 
-/* Hero right — 16:9 image fills the right column completely */
 .hero-right {
   position: relative;
   overflow: hidden;
-  /* stretch to fill grid row height */
   min-height: calc(100vh - 68px);
 }
 .hero-main-img {
   position: absolute;
   top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;        /* 16:9 image covers 50% wide column — crops slightly top/bottom, product stays visible */
+  width: 100%; height: 100%;
+  object-fit: cover;
   object-position: center center;
   display: block;
 }
 
-/* STRIP */
+/* ── STRIP ── */
 .strip {
   background: var(--orange);
-  padding: 14px 0;
+  padding: 13px 0;
   overflow: hidden;
   white-space: nowrap;
 }
 .strip-inner {
   display: inline-flex; gap: 0;
-  animation: marquee 24s linear infinite;
+  animation: marquee 28s linear infinite;
 }
 @keyframes marquee {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to   { transform: translateX(-50%); }
 }
 .strip-item {
-  font-family: var(--font-display);
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--white);
-  padding: 0 32px;
+  padding: 0 28px;
 }
 .strip-dot {
-  color: rgba(255,255,255,0.4);
-  padding: 0 4px;
+  color: rgba(255,255,255,0.35);
   font-size: 6px;
-  line-height: 1;
   display: inline-flex; align-items: center;
 }
 
-/* PRESS */
+/* ── PRESS ── */
 .press {
   background: var(--white);
-  padding: 48px 80px;
+  padding: 44px 80px;
   border-bottom: 1px solid var(--border);
 }
 .press-label {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-size: 9px; font-weight: 500;
   letter-spacing: 0.22em; text-transform: uppercase;
   color: var(--text-light);
-  text-align: center; margin-bottom: 28px;
+  text-align: center; margin-bottom: 24px;
 }
 .press-row {
   display: flex; align-items: center;
-  justify-content: center; gap: 52px; flex-wrap: wrap;
+  justify-content: center; gap: 48px; flex-wrap: wrap;
 }
 .press-name {
-  font-family: var(--font-heading);
-  font-size: 17px; font-weight: 600;
+  font-family: var(--font-editorial);
+  font-size: 19px; font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--text-light);
   transition: color 0.2s;
 }
 .press-name:hover { color: var(--navy); }
 
-/* MANIFESTO */
-.manifesto {
-  background: var(--off-white);
+/* ── JTBD — THE FRUSTRATION MIRROR ── */
+/* This section answers her question: "Does this brand understand me?" */
+.frustration {
+  background: var(--navy-deep);
   padding: 100px 80px;
+}
+.frustration-eyebrow {
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 24px;
+}
+.frustration-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
-  align-items: center;
+  align-items: start;
 }
-.manifesto-eyebrow { margin-bottom: 20px; }
-.manifesto-headline {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: clamp(34px, 3.2vw, 48px);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  color: var(--navy);
-  margin-bottom: 28px;
+.frustration-headline {
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: clamp(36px, 3.8vw, 56px);
+  line-height: 1.08;
+  color: var(--white);
+  margin-bottom: 32px;
 }
-.manifesto-headline strong {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  color: var(--orange);
-}
-.manifesto-body {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 15px;
-  line-height: 1.85;
-  color: var(--text-mid);
-  margin-bottom: 18px;
-}
-.text-link {
-  font-family: var(--font-display);
-  font-size: 10px; font-weight: 500;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--orange); text-decoration: none;
-  border-bottom: 1px solid var(--orange);
-  padding-bottom: 2px;
-  transition: opacity 0.2s;
-  display: inline-block; margin-top: 12px;
-}
-.text-link:hover { opacity: 0.7; }
-
-.pullquote-card {
-  background: var(--navy);
-  padding: 48px 44px;
-  position: relative;
-}
-.pullquote-card::after {
-  content: '';
-  position: absolute;
-  bottom: -12px; right: -12px;
-  width: 100%; height: 100%;
-  background: var(--orange);
-  z-index: -1;
-  opacity: 0.15;
-}
-.pullquote-mark {
-  font-family: var(--font-heading);
-  font-size: 72px;
-  line-height: 0.6;
-  color: var(--orange);
-  opacity: 0.5;
-  display: block;
-  margin-bottom: 20px;
-}
-.pullquote-text {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 20px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.9);
-  margin-bottom: 28px;
+.frustration-headline em {
   font-style: italic;
-}
-.pullquote-attr {
-  font-family: var(--font-display);
-  font-size: 10px; font-weight: 500;
-  letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--orange);
 }
+.frustration-body {
+  font-family: var(--font-utility);
+  font-weight: 200;
+  font-size: 14px;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 14px;
+}
+.frustration-body strong {
+  color: rgba(255,255,255,0.85);
+  font-weight: 400;
+}
+.frustration-divider {
+  width: 32px; height: 1px;
+  background: var(--orange);
+  margin: 28px 0;
+}
 
-/* =============================================
-   INGREDIENTS — FIXED
-   Images are 1:1 square (1254×1254).
-   Container uses aspect-ratio: 1/1.
-   NO overlay div — text is baked into images.
-   ============================================= */
+/* The "what changed" moment */
+.frustration-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.fcard {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 28px 30px;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 16px;
+  align-items: start;
+  transition: background 0.25s, border-color 0.25s;
+}
+.fcard:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(232,98,26,0.3);
+}
+.fcard-num {
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: 32px;
+  color: rgba(232,98,26,0.4);
+  line-height: 1;
+  padding-top: 4px;
+}
+.fcard-title {
+  font-family: var(--font-utility);
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+.fcard-desc {
+  font-family: var(--font-utility);
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ── SKIN PROBLEM FINDER ── */
+/* Written in her language — frustration outcomes, not product categories */
+.finder {
+  background: var(--off-white);
+  padding: 80px;
+  border-bottom: 1px solid var(--border);
+}
+.finder-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+.finder-eyebrow {
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 16px;
+}
+.finder-headline {
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: clamp(28px, 2.8vw, 40px);
+  color: var(--navy);
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.finder-headline em {
+  font-style: italic;
+  color: var(--orange);
+}
+.finder-sub {
+  font-family: var(--font-utility);
+  font-weight: 200;
+  font-size: 13px;
+  color: var(--text-mid);
+  max-width: 380px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.finder-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+.finder-pill {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 12px 22px;
+  font-family: var(--font-utility);
+  font-size: 11px; font-weight: 300;
+  color: var(--text-mid);
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.finder-pill:hover,
+.finder-pill.active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: var(--white);
+}
+.finder-pill.active {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+/* Product cards rendered by finder */
+.finder-results {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  transition: opacity 0.3s;
+}
+.finder-results.fading { opacity: 0.3; }
+
+/* ── PRODUCTS (shared card styles) ── */
+.product-card {
+  background: var(--white);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(26,46,92,0.1);
+  z-index: 2;
+}
+.product-card-img-wrap {
+  aspect-ratio: 9 / 16;
+  width: 100%;
+  background: #0a0f2e;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+}
+.product-card-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.product-card:hover .product-card-img-wrap img {
+  transform: scale(1.04);
+}
+.product-badge {
+  position: absolute; top: 12px; left: 12px;
+  background: var(--navy);
+  color: var(--white);
+  font-family: var(--font-utility);
+  font-size: 8px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  padding: 5px 10px;
+  z-index: 2;
+}
+.product-badge.orange { background: var(--orange); }
+.product-info { padding: 20px 20px 24px; flex: 1; }
+.product-concern {
+  font-family: var(--font-utility);
+  font-size: 9px; font-weight: 400;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 7px;
+}
+.product-name {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: 17px;
+  color: var(--navy);
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+.product-stars {
+  display: flex; align-items: center; gap: 6px;
+  margin-bottom: 14px;
+}
+.stars-icons { color: var(--orange); font-size: 11px; letter-spacing: 1px; }
+.review-n {
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 300;
+  color: var(--text-light);
+}
+.product-footer {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.product-price {
+  font-family: var(--font-editorial);
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--navy);
+}
+.add-btn {
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 9px 18px;
+  font-family: var(--font-utility);
+  font-size: 9px; font-weight: 400;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.2s;
+}
+.add-btn:hover { background: var(--orange); }
+
+/* ── INGREDIENTS ── */
 .ingredients {
   background: var(--navy-deep);
   padding: 100px 80px;
 }
 .ingredients-header {
   display: flex; justify-content: space-between; align-items: flex-end;
-  margin-bottom: 60px;
+  margin-bottom: 56px;
 }
 .ingredients-headline {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: clamp(34px, 3.2vw, 48px);
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: clamp(34px, 3.2vw, 50px);
   color: var(--white);
   line-height: 1.1;
-  letter-spacing: -0.02em;
   margin-top: 16px;
 }
-.ingredients-headline strong {
-  font-family: var(--font-heading);
-  font-weight: 600;
+.ingredients-headline em {
+  font-style: italic;
   color: var(--orange);
 }
 .ingredients-note {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-weight: 200;
-  font-size: 13px;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.4);
-  max-width: 280px;
+  font-size: 12px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.35);
+  max-width: 260px;
   text-align: right;
 }
 .ingredients-grid {
@@ -452,24 +602,19 @@ nav {
   gap: 2px;
   margin-bottom: 2px;
 }
-
-/* Ingredient image cards — 1:1 square, no overlay, no text */
 .ing-card-img {
   overflow: hidden;
-  position: relative;
-  cursor: default;
-  aspect-ratio: 1 / 1;     /* images are 1254×1254 — exact 1:1 */
+  aspect-ratio: 1 / 1;
   width: 100%;
 }
 .ing-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;        /* fill the square, no crop needed since image IS square */
+  width: 100%; height: 100%;
+  object-fit: cover;
   display: block;
+  transition: transform 0.5s ease;
 }
-/* NO .ing-card-overlay — text is already inside the images */
+.ing-card-img:hover .ing-img { transform: scale(1.04); }
 
-/* Secondary ingredient cards (text only, no image) */
 .ing-card {
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.07);
@@ -481,247 +626,123 @@ nav {
   border-color: rgba(232,98,26,0.4);
 }
 .ing-tag {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-size: 8px; font-weight: 500;
   letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--orange); margin-bottom: 10px;
 }
 .ing-name {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 20px;
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: 24px;
   color: var(--white);
-  margin-bottom: 14px;
-  line-height: 1.2;
+  margin-bottom: 12px; line-height: 1.2;
 }
 .ing-desc {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-weight: 200;
-  font-size: 12px;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.65);
-  margin-bottom: 8px;
+  font-size: 12px; line-height: 1.7;
+  color: rgba(255,255,255,0.55);
 }
 .ing-origin {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-size: 9px; font-weight: 400;
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: rgba(232,98,26,0.75);
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,0.08);
+  color: rgba(232,98,26,0.7);
+  margin-top: 24px; padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.07);
 }
 
-/* =============================================
-   PRODUCTS — FIXED
-   Images are 9:16 portrait (941×1672).
-   Container uses aspect-ratio: 9/16.
-   object-fit: contain — show full bottle, no crop.
-   Background keeps the dark blue from the product images.
-   ============================================= */
-.products {
-  background: var(--white);
-  padding: 100px 80px;
-}
-.section-header {
-  display: flex; justify-content: space-between; align-items: flex-end;
-  margin-bottom: 52px;
-}
-.section-title {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: clamp(30px, 2.8vw, 42px);
-  color: var(--navy);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-top: 14px;
-}
-.section-title strong {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  color: var(--navy);
-}
-.products-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-}
-.product-card {
-  background: var(--off-white);
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.product-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(26,46,92,0.12);
-  z-index: 2;
-}
-
-/* 9:16 container — matches product image ratio exactly */
-.product-card-img-wrap {
-  aspect-ratio: 9 / 16;
-  width: 100%;
-  background: #0a0f2e;      /* matches the dark blue background of product images */
-  overflow: hidden;
-  position: relative;
-  flex-shrink: 0;
-}
-.product-card-img-wrap img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;      /* contain = full bottle visible, no crop */
-  display: block;
-  transition: transform 0.4s ease;
-}
-.product-card:hover .product-card-img-wrap img {
-  transform: scale(1.04);
-}
-.product-badge {
-  position: absolute; top: 14px; left: 14px;
-  background: var(--navy);
-  color: var(--white);
-  font-family: var(--font-display);
-  font-size: 8px; font-weight: 500;
-  letter-spacing: 0.16em; text-transform: uppercase;
-  padding: 5px 10px;
-  z-index: 2;
-}
-.product-badge.orange { background: var(--orange); }
-.product-info {
-  padding: 22px 22px 26px;
-  flex: 1;
-}
-.product-concern {
-  font-family: var(--font-display);
-  font-size: 9px; font-weight: 500;
-  letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--orange); margin-bottom: 8px;
-}
-.product-name {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--navy);
-  line-height: 1.3;
-  margin-bottom: 10px;
-}
-.product-stars {
-  display: flex; align-items: center; gap: 6px;
-  margin-bottom: 16px;
-}
-.stars-icons { color: var(--orange); font-size: 11px; letter-spacing: 1px; }
-.review-n {
-  font-family: var(--font-display);
-  font-size: 11px; font-weight: 300;
-  color: var(--text-light);
-}
-.product-footer {
-  display: flex; justify-content: space-between; align-items: center;
-}
-.product-price {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 16px;
-  color: var(--navy);
-}
-.add-btn {
-  background: var(--navy);
-  color: var(--white);
-  border: none;
-  padding: 9px 18px;
-  font-family: var(--font-display);
-  font-size: 9px; font-weight: 500;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 2px;
-  transition: background 0.2s;
-}
-.add-btn:hover { background: var(--orange); }
-
-/* PROOF */
+/* ── PROOF / REVIEWS ── */
+/* Reviews reframed as convert stories, not generic testimonials */
 .proof {
-  background: var(--navy-light);
+  background: var(--cream);
   padding: 100px 80px;
 }
-.proof-header { text-align: center; margin-bottom: 64px; }
+.proof-header { text-align: center; margin-bottom: 60px; }
+.proof-eyebrow {
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 16px;
+}
 .proof-headline {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: clamp(30px, 2.8vw, 44px);
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: clamp(32px, 3vw, 46px);
   color: var(--navy);
-  letter-spacing: -0.02em;
   line-height: 1.1;
-  margin: 16px 0 12px;
+  margin-bottom: 12px;
 }
-.proof-headline strong {
-  font-family: var(--font-heading);
-  font-weight: 600;
-}
+.proof-headline em { font-style: italic; color: var(--orange); }
 .proof-sub {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 14px;
+  font-family: var(--font-utility);
+  font-weight: 200; font-size: 13px;
   color: var(--text-mid);
-  max-width: 420px;
-  margin: 0 auto;
+  max-width: 380px; margin: 0 auto;
+  line-height: 1.7;
 }
 .testimonials {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-bottom: 3px;
+  gap: 2px; margin-bottom: 3px;
 }
 .tcard {
   background: var(--white);
   padding: 36px 32px 32px;
+  border: 1px solid transparent;
+  transition: border-color 0.2s;
 }
+.tcard:hover { border-color: rgba(232,98,26,0.2); }
 .tcard-mark {
-  font-family: var(--font-heading);
-  font-size: 60px;
-  line-height: 0.7;
-  color: var(--orange);
-  opacity: 0.25;
-  display: block;
-  margin-bottom: 14px;
+  font-family: var(--font-editorial);
+  font-size: 64px; line-height: 0.7;
+  color: var(--orange); opacity: 0.2;
+  display: block; margin-bottom: 14px;
 }
+/* The "who noticed" detail — third-party validation, not self-claim */
 .tcard-text {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 15px;
-  line-height: 1.75;
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: 17px; line-height: 1.7;
   color: var(--text);
-  font-style: italic;
-  margin-bottom: 24px;
+  font-style: italic; margin-bottom: 20px;
+}
+.tcard-previously {
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 300;
+  color: var(--text-light);
+  letter-spacing: 0.06em;
+  border-top: 1px solid var(--border);
+  padding-top: 16px; margin-bottom: 20px;
+  line-height: 1.6;
+}
+.tcard-previously strong {
+  color: var(--text-mid);
+  font-weight: 400;
 }
 .tcard-footer {
   display: flex; align-items: center; gap: 12px;
 }
 .tcard-avatar {
-  width: 38px; height: 38px; border-radius: 50%;
+  width: 36px; height: 36px; border-radius: 50%;
   background: var(--navy);
   display: flex; align-items: center; justify-content: center;
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--white);
-  flex-shrink: 0;
+  font-family: var(--font-utility);
+  font-weight: 500; font-size: 13px;
+  color: var(--white); flex-shrink: 0;
 }
 .tcard-name {
-  font-family: var(--font-display);
-  font-size: 12px; font-weight: 500;
+  font-family: var(--font-utility);
+  font-size: 11px; font-weight: 400;
   color: var(--text);
 }
 .tcard-loc {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-size: 10px; font-weight: 200;
   color: var(--text-light);
-  letter-spacing: 0.06em;
 }
-.tcard-stars { color: var(--orange); font-size: 10px; letter-spacing: 1px; }
+.tcard-stars { color: var(--orange); font-size: 10px; }
 
 .stats-row {
   display: grid; grid-template-columns: repeat(4, 1fr);
@@ -729,28 +750,24 @@ nav {
 }
 .stat-block {
   background: var(--navy);
-  padding: 36px 32px;
-  text-align: center;
+  padding: 36px 32px; text-align: center;
 }
 .stat-num {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 44px;
-  color: var(--white);
-  line-height: 1;
-  margin-bottom: 8px;
-  letter-spacing: -0.02em;
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: 48px; color: var(--white);
+  line-height: 1; margin-bottom: 8px;
+  letter-spacing: -0.01em;
 }
-.stat-num span { font-family: var(--font-heading); font-weight: 600; color: var(--orange); }
+.stat-num span { font-weight: 400; color: var(--orange); }
 .stat-label {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-size: 9px; font-weight: 400;
   letter-spacing: 0.16em; text-transform: uppercase;
-  color: rgba(255,255,255,0.4);
-  line-height: 1.5;
+  color: rgba(255,255,255,0.35); line-height: 1.5;
 }
 
-/* TRUST */
+/* ── TRUST / CLINICAL ── */
 .trust {
   background: var(--white);
   padding: 100px 80px;
@@ -759,42 +776,46 @@ nav {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: 80px; align-items: center;
 }
+.trust-eyebrow {
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 16px;
+}
 .trust-headline {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: clamp(28px, 2.6vw, 40px);
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: clamp(28px, 2.6vw, 42px);
   color: var(--navy);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
-  margin: 16px 0 24px;
+  line-height: 1.12; margin-bottom: 24px;
 }
-.trust-headline strong {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  color: var(--orange);
-}
+.trust-headline em { font-style: italic; color: var(--orange); }
 .trust-body {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 14px;
-  line-height: 1.85;
-  color: var(--text-mid);
-  margin-bottom: 16px;
+  font-family: var(--font-utility);
+  font-weight: 200; font-size: 14px;
+  line-height: 1.9; color: var(--text-mid);
+  margin-bottom: 14px;
+}
+.trust-body strong {
+  color: var(--text); font-weight: 400;
 }
 .guarantee-box {
   background: var(--navy);
-  padding: 28px 32px;
-  display: flex; gap: 18px; align-items: center;
-  margin-top: 36px;
-  border-left: 4px solid var(--orange);
+  padding: 24px 28px;
+  display: flex; gap: 16px; align-items: flex-start;
+  margin-top: 32px;
+  border-left: 3px solid var(--orange);
 }
+.guarantee-icon { font-size: 20px; flex-shrink: 0; padding-top: 2px; }
 .guarantee-text {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 14px;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.85);
-  font-style: italic;
+  font-family: var(--font-utility);
+  font-weight: 200; font-size: 13px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.8);
+}
+.guarantee-text strong {
+  font-weight: 400;
+  color: var(--white);
 }
 .trust-badges {
   display: grid; grid-template-columns: 1fr 1fr;
@@ -802,53 +823,54 @@ nav {
 }
 .tbadge {
   background: var(--off-white);
-  padding: 28px 24px;
-  display: flex; gap: 14px; align-items: flex-start;
+  padding: 26px 22px;
   transition: background 0.2s;
+  border: 1px solid transparent;
 }
-.tbadge:hover { background: var(--navy-light); }
+.tbadge:hover {
+  background: var(--navy-light);
+  border-color: rgba(26,46,92,0.1);
+}
+.tbadge-icon {
+  font-size: 20px; margin-bottom: 10px; display: block;
+}
 .tbadge-title {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 12px;
-  color: var(--navy);
-  margin-bottom: 4px;
+  font-family: var(--font-utility);
+  font-weight: 500; font-size: 11px;
+  color: var(--navy); margin-bottom: 4px;
 }
 .tbadge-desc {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-size: 11px; font-weight: 200;
-  color: var(--text-mid);
-  line-height: 1.55;
+  color: var(--text-mid); line-height: 1.55;
 }
 
-/* RITUAL */
+/* ── RITUAL ── */
 .ritual {
   background: var(--navy-deep);
   padding: 100px 80px;
 }
-.ritual-header { text-align: center; margin-bottom: 64px; }
-.ritual-eyebrow { color: var(--orange); }
+.ritual-header { text-align: center; margin-bottom: 60px; }
+.ritual-eyebrow {
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--orange); margin-bottom: 16px;
+}
 .ritual-headline {
-  font-family: var(--font-display);
-  font-weight: 200;
+  font-family: var(--font-editorial);
+  font-weight: 300;
   font-size: clamp(30px, 2.8vw, 44px);
   color: var(--white);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin: 16px 0 12px;
+  line-height: 1.1; margin-bottom: 12px;
 }
-.ritual-headline strong {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  color: var(--orange);
-}
+.ritual-headline em { font-style: italic; color: var(--orange); }
 .ritual-sub {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 14px;
-  color: rgba(255,255,255,0.45);
-  max-width: 420px;
-  margin: 0 auto;
+  font-family: var(--font-utility);
+  font-weight: 200; font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  max-width: 380px; margin: 0 auto;
+  line-height: 1.7;
 }
 .ritual-steps {
   display: grid;
@@ -857,93 +879,90 @@ nav {
 }
 .rstep {
   background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.07);
-  padding: 36px 30px;
-  position: relative;
-  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 36px 28px;
+  position: relative; overflow: hidden;
+  transition: background 0.25s, border-color 0.25s;
+}
+.rstep:hover {
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(232,98,26,0.25);
 }
 .rstep::before {
   content: attr(data-num);
   position: absolute;
-  top: -10px; right: 16px;
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 80px;
-  color: rgba(255,255,255,0.04);
+  top: -12px; right: 12px;
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: 88px;
+  color: rgba(255,255,255,0.03);
   line-height: 1;
-  letter-spacing: -0.02em;
 }
 .rstep-time {
-  font-family: var(--font-display);
-  font-size: 8px; font-weight: 500;
+  font-family: var(--font-utility);
+  font-size: 8px; font-weight: 400;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 20px;
+  color: var(--orange); margin-bottom: 18px;
 }
 .rstep-name {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 22px;
-  color: var(--white);
-  margin-bottom: 12px;
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-size: 26px;
+  color: var(--white); margin-bottom: 12px;
 }
 .rstep-desc {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 12px;
+  font-family: var(--font-utility);
+  font-weight: 200; font-size: 12px;
   line-height: 1.75;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.4);
 }
 .rstep-product {
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  font-family: var(--font-display);
-  font-size: 10px; font-weight: 400;
+  margin-top: 22px; padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  font-family: var(--font-utility);
+  font-size: 9px; font-weight: 300;
   letter-spacing: 0.1em;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.25);
   text-transform: uppercase;
 }
 
-/* CTA */
+/* ── CTA ── */
 .cta-band {
   background: var(--orange);
-  padding: 80px;
+  padding: 88px 80px;
   text-align: center;
 }
-.cta-band .eyebrow { color: rgba(255,255,255,0.7); margin-bottom: 20px; display: block; }
+.cta-eyebrow {
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 20px; display: block;
+}
 .cta-headline {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: clamp(32px, 3.5vw, 52px);
+  font-family: var(--font-editorial);
+  font-weight: 300;
+  font-size: clamp(36px, 4vw, 58px);
   color: var(--white);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
-  margin-bottom: 14px;
+  line-height: 1.08; margin-bottom: 14px;
 }
-.cta-headline strong {
-  font-family: var(--font-heading);
-  font-weight: 600;
-}
+.cta-headline em { font-style: italic; }
 .cta-sub {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 14px;
-  color: rgba(255,255,255,0.75);
-  max-width: 400px;
-  margin: 0 auto 40px;
-  line-height: 1.7;
+  font-family: var(--font-utility);
+  font-weight: 200; font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  max-width: 380px; margin: 0 auto 40px;
+  line-height: 1.75;
 }
-.cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+.cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .btn-white {
   background: var(--white);
   color: var(--orange);
   padding: 14px 36px;
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-size: 10px; font-weight: 500;
   letter-spacing: 0.18em; text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 2px;
+  text-decoration: none; border-radius: 2px;
   display: inline-block;
   transition: background 0.2s, color 0.2s;
 }
@@ -951,63 +970,53 @@ nav {
 .btn-outline-white {
   background: transparent;
   color: var(--white);
-  border: 1px solid rgba(255,255,255,0.5);
+  border: 1px solid rgba(255,255,255,0.45);
   padding: 14px 36px;
-  font-family: var(--font-display);
-  font-size: 10px; font-weight: 500;
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 400;
   letter-spacing: 0.18em; text-transform: uppercase;
-  text-decoration: none;
-  border-radius: 2px;
+  text-decoration: none; border-radius: 2px;
   display: inline-block;
   transition: border-color 0.2s;
 }
 .btn-outline-white:hover { border-color: var(--white); }
 
-/* FOOTER */
+/* ── FOOTER ── */
 footer {
   background: var(--navy-deep);
   padding: 72px 80px 36px;
 }
 .footer-top {
   display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 48px;
-  padding-bottom: 52px;
+  gap: 48px; padding-bottom: 52px;
   border-bottom: 1px solid rgba(255,255,255,0.07);
   margin-bottom: 36px;
 }
 .footer-logo {
-  font-family: var(--font-display);
-  font-weight: 200;
-  font-size: 28px;
-  letter-spacing: 0.26em;
-  text-transform: uppercase;
-  color: var(--white);
-  margin-bottom: 14px;
-  display: block;
+  font-family: var(--font-utility);
+  font-weight: 200; font-size: 26px;
+  letter-spacing: 0.3em; text-transform: uppercase;
+  color: var(--white); margin-bottom: 12px; display: block;
 }
 .footer-logo span { color: var(--orange); }
 .footer-tagline {
-  font-family: var(--font-display);
-  font-size: 12px; font-weight: 200;
-  line-height: 1.75;
-  color: rgba(255,255,255,0.35);
-  max-width: 240px;
-  margin-bottom: 28px;
+  font-family: var(--font-utility);
+  font-size: 11px; font-weight: 200;
+  line-height: 1.8; color: rgba(255,255,255,0.3);
+  max-width: 220px; margin-bottom: 24px;
 }
 .footer-col-title {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-size: 9px; font-weight: 500;
   letter-spacing: 0.2em; text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
-  margin-bottom: 18px;
+  color: rgba(255,255,255,0.25); margin-bottom: 18px;
 }
 .footer-links { list-style: none; }
 .footer-links li { margin-bottom: 10px; }
 .footer-links a {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-size: 12px; font-weight: 200;
-  color: rgba(255,255,255,0.5);
-  text-decoration: none;
+  color: rgba(255,255,255,0.45); text-decoration: none;
   transition: color 0.2s;
 }
 .footer-links a:hover { color: var(--white); }
@@ -1016,40 +1025,54 @@ footer {
   align-items: center; flex-wrap: wrap; gap: 16px;
 }
 .footer-copy {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-size: 11px; font-weight: 200;
-  color: rgba(255,255,255,0.25);
+  color: rgba(255,255,255,0.2);
 }
 .footer-legal { display: flex; gap: 24px; }
 .footer-legal a {
-  font-family: var(--font-display);
+  font-family: var(--font-utility);
   font-size: 10px; font-weight: 200;
-  color: rgba(255,255,255,0.25);
-  text-decoration: none; transition: color 0.2s;
+  color: rgba(255,255,255,0.2); text-decoration: none;
+  transition: color 0.2s;
 }
-.footer-legal a:hover { color: rgba(255,255,255,0.55); }
+.footer-legal a:hover { color: rgba(255,255,255,0.5); }
 
-/* RESPONSIVE */
+/* ── SHARED UTILITIES ── */
+.text-link {
+  font-family: var(--font-utility);
+  font-size: 10px; font-weight: 400;
+  letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--orange); text-decoration: none;
+  border-bottom: 1px solid var(--orange);
+  padding-bottom: 2px;
+  transition: opacity 0.2s;
+  display: inline-block;
+}
+.text-link:hover { opacity: 0.65; }
+
+/* ── RESPONSIVE ── */
 @media (max-width: 960px) {
   nav { padding: 0 24px; }
   .nav-links { display: none; }
   .hero { grid-template-columns: 1fr; }
-  .hero-left { padding: 60px 24px; }
+  .hero-left { padding: 60px 24px 48px; }
   .hero-right { display: none; }
   .press { padding: 40px 24px; }
   .press-row { gap: 24px; }
-  .manifesto { grid-template-columns: 1fr; padding: 72px 24px; gap: 40px; }
+  .frustration { padding: 72px 24px; }
+  .frustration-grid { grid-template-columns: 1fr; gap: 40px; }
+  .finder { padding: 60px 24px; }
+  .finder-results { grid-template-columns: repeat(2, 1fr); }
   .ingredients { padding: 72px 24px; }
-  .ingredients-header { flex-direction: column; gap: 20px; align-items: flex-start; }
+  .ingredients-header { flex-direction: column; gap: 16px; align-items: flex-start; }
   .ingredients-note { text-align: left; max-width: 100%; }
   .ingredients-grid { grid-template-columns: 1fr; }
-  .products { padding: 72px 24px; }
-  .products-grid { grid-template-columns: repeat(2, 1fr); }
   .proof { padding: 72px 24px; }
   .testimonials { grid-template-columns: 1fr; }
   .stats-row { grid-template-columns: repeat(2, 1fr); }
   .trust { padding: 72px 24px; }
-  .trust-grid { grid-template-columns: 1fr; }
+  .trust-grid { grid-template-columns: 1fr; gap: 40px; }
   .trust-badges { grid-template-columns: 1fr; }
   .ritual { padding: 72px 24px; }
   .ritual-steps { grid-template-columns: repeat(2, 1fr); }
@@ -1065,40 +1088,62 @@ footer {
 <nav>
   <a href="#" class="nav-logo">VIAH<span>.</span></a>
   <ul class="nav-links">
+    <li><a href="#finder">Find My Product</a></li>
     <li><a href="#ingredients">Ingredients</a></li>
-    <li><a href="#products">Products</a></li>
     <li><a href="#ritual">Daily Ritual</a></li>
     <li><a href="#proof">Results</a></li>
-    <li><a href="#">About Viah</a></li>
+    <li><a href="https://viahbeauty.com/pages/why-us">Why Viah</a></li>
   </ul>
   <div class="nav-right">
-    <a href="#products" class="nav-btn">Shop Now</a>
+    <a href="#finder" class="nav-btn">Find My Product</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ══════════════════════════════════════
+     HERO
+     Opens with her feeling, not the product.
+     Guarantee lives here — answers anxiety
+     before she even reads the CTA.
+     ══════════════════════════════════════ -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">Crafted for Indian Skin</div>
-    <h1>
-      <span class="hero-headline">India's Only</span>
-      <span class="hero-headline-accent">White Truffle</span>
-      <span class="hero-headline">Skincare</span>
-    </h1>
-    <p class="hero-sub">
-      We use Italian White Truffle — one of the rarest ingredients on earth — formulated for Indian skin. Because your skin deserves ingredients that actually work, not a marketing story.
-    </p>
-    <div class="hero-actions">
-      <a href="#products" class="btn-orange">Explore the Range</a>
-      <a href="#ingredients" class="btn-ghost-white">Why White Truffle →</a>
+
+    <!-- Emotional entry — mirrors her frustration before anything else -->
+    <div class="hero-frustration-bar">
+      <span class="hero-frustration-dot"></span>
+      <span class="hero-frustration-text">For Indian skin that's been through enough</span>
     </div>
+
+    <h1>
+      <span class="hero-headline hero-headline-word">Finally,</span>
+      <span class="hero-headline hero-headline-word">something</span>
+      <span class="hero-headline hero-headline-word">that <span class="hero-headline-accent">shows.</span></span>
+    </h1>
+
+    <p class="hero-sub">
+      Italian White Truffle. Australian Lime Caviar. Seven rare global ingredients — formulated for Indian skin, tested in Indian conditions. Not imported hope. Imported results.
+    </p>
+
+    <!-- Guarantee before the CTA — reduces anxiety at the highest-stakes moment -->
+    <div class="hero-guarantee">
+      <span class="hero-guarantee-icon">↩</span>
+      <span class="hero-guarantee-text">
+        <strong>30-day visible difference guarantee.</strong> If your skin hasn't changed, we return every rupee. No forms. No questions.
+      </span>
+    </div>
+
+    <div class="hero-actions">
+      <a href="#finder" class="btn-orange">Find What Works for My Skin</a>
+      <a href="#ingredients" class="btn-ghost-white">Why these ingredients →</a>
+    </div>
+
     <div class="hero-trust-row">
       <div class="hero-trust-item">
-        <div class="hero-trust-num">630<span style="color:var(--orange);font-size:20px">+</span></div>
+        <div class="hero-trust-num">630<span>+</span></div>
         <div class="hero-trust-label">Verified Reviews</div>
       </div>
       <div class="hero-trust-item">
-        <div class="hero-trust-num">4.8<span style="color:var(--orange);font-size:16px">★</span></div>
+        <div class="hero-trust-num">4.8<span>★</span></div>
         <div class="hero-trust-label">Average Rating</div>
       </div>
       <div class="hero-trust-item">
@@ -1109,11 +1154,7 @@ footer {
   </div>
 
   <div class="hero-right">
-    <img
-      class="hero-main-img"
-      src="Main Header image.png"
-      alt="Viah Triple Action Moisturiser with Italian White Truffle"
-    >
+    <img class="hero-main-img" src="Main Header image.png" alt="Viah White Truffle Skincare">
   </div>
 </section>
 
@@ -1122,18 +1163,18 @@ footer {
   <div class="strip-inner">
     <span class="strip-item">Italian White Truffle</span><span class="strip-dot">●</span>
     <span class="strip-item">Australian Lime Caviar</span><span class="strip-dot">●</span>
-    <span class="strip-item">Clinically Tested</span><span class="strip-dot">●</span>
-    <span class="strip-item">Formulated for Indian Skin</span><span class="strip-dot">●</span>
+    <span class="strip-item">Clinically Tested on Indian Skin</span><span class="strip-dot">●</span>
+    <span class="strip-item">Formulated for Indian Climate</span><span class="strip-dot">●</span>
     <span class="strip-item">No Parabens · No GMOs</span><span class="strip-dot">●</span>
     <span class="strip-item">Pollution Shield</span><span class="strip-dot">●</span>
-    <span class="strip-item">As Seen In GQ India</span><span class="strip-dot">●</span>
+    <span class="strip-item">30-Day Money Back</span><span class="strip-dot">●</span>
     <span class="strip-item">Italian White Truffle</span><span class="strip-dot">●</span>
     <span class="strip-item">Australian Lime Caviar</span><span class="strip-dot">●</span>
-    <span class="strip-item">Clinically Tested</span><span class="strip-dot">●</span>
-    <span class="strip-item">Formulated for Indian Skin</span><span class="strip-dot">●</span>
+    <span class="strip-item">Clinically Tested on Indian Skin</span><span class="strip-dot">●</span>
+    <span class="strip-item">Formulated for Indian Climate</span><span class="strip-dot">●</span>
     <span class="strip-item">No Parabens · No GMOs</span><span class="strip-dot">●</span>
     <span class="strip-item">Pollution Shield</span><span class="strip-dot">●</span>
-    <span class="strip-item">As Seen In GQ India</span><span class="strip-dot">●</span>
+    <span class="strip-item">30-Day Money Back</span><span class="strip-dot">●</span>
   </div>
 </div>
 
@@ -1151,94 +1192,90 @@ footer {
   </div>
 </section>
 
-<!-- MANIFESTO -->
-<section class="manifesto">
-  <div class="manifesto-left">
-    <div class="eyebrow manifesto-eyebrow">Our Position</div>
-    <h2 class="manifesto-headline">
-      Rare global ingredients.<br>
-      <strong>Indian skin logic.</strong>
-    </h2>
-    <p class="manifesto-body">
-      Every other skincare brand in India is using the same 40 commodity ingredients. They call it "premium." It isn't. Premium is Italian White Truffle. Premium is Australian Lime Caviar sourced from Queensland. Premium is formulated for your skin tone, your climate, and your reality — not copy-pasted from a European R&D sheet.
-    </p>
-    <p class="manifesto-body">
-      Viah is the only Indian skincare brand built around ingredients rare enough to appear on Michelin-starred menus — brought to your skincare routine at a fraction of what European luxury brands charge.
-    </p>
-    <a href="#ingredients" class="text-link">See every ingredient →</a>
-  </div>
-  <div class="manifesto-right">
-    <div class="pullquote-card">
-      <span class="pullquote-mark">"</span>
-      <p class="pullquote-text">Viah has replaced a product in my regime that was double the price. I couldn't be happier.</p>
-      <div class="pullquote-attr">Chandni · Jaipur · Verified Buyer</div>
-    </div>
-  </div>
-</section>
-
-<!-- INGREDIENTS -->
-<section class="ingredients" id="ingredients">
-  <div class="ingredients-header">
-    <div class="ingredients-header-left">
-      <div class="eyebrow">The Ingredient Difference</div>
-      <h2 class="ingredients-headline">Seven rare ingredients.<br><strong>Zero compromise.</strong></h2>
-    </div>
-    <p class="ingredients-note">Every ingredient is chosen for proven efficacy on Indian skin — not availability or cost.</p>
-  </div>
-
-  <div class="ingredients-grid">
-    <!-- Images are 1254x1254 (1:1 square). Text is baked into images. NO overlay needed. -->
-    <div class="ing-card-img">
-      <img class="ing-img" src="White tuffel.png" alt="Italian White Truffle">
-    </div>
-    <div class="ing-card-img">
-      <img class="ing-img" src="Australian Lime Caviar.png" alt="Australian Lime Caviar">
-    </div>
-    <div class="ing-card-img">
-      <img class="ing-img" src="Rose Myrtle Berry.png" alt="Rose Myrtle Berry">
-    </div>
-  </div>
-
-  <div class="ingredients-grid">
-    <div class="ing-card">
-      <div class="ing-tag">Firming · Instant Results</div>
-      <div class="ing-name">Easyliance</div>
-      <div class="ing-desc">Clinically proven tensing complex. Delivers visible skin tightening within 5 minutes of application — the science behind our bestseller.</div>
-      <div class="ing-origin">Biotechnology, France</div>
-    </div>
-    <div class="ing-card">
-      <div class="ing-tag">Deep Hydration</div>
-      <div class="ing-name">Aquaxyl</div>
-      <div class="ing-desc">Strengthens the skin's moisture barrier from within. Works with Indian skin's tendency toward dehydration in both humidity and dry cold.</div>
-      <div class="ing-origin">Biotechnology, Switzerland</div>
-    </div>
-    <div class="ing-card">
-      <div class="ing-tag">Urban Shield</div>
-      <div class="ing-name">Pollushield</div>
-      <div class="ing-desc">Invisible barrier against PM2.5 and blue light. Built specifically for Indian cities — Delhi, Mumbai, Bengaluru.</div>
-      <div class="ing-origin">Developed for Urban India</div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section class="products" id="products">
-  <div class="section-header">
+<!-- ══════════════════════════════════════
+     FRUSTRATION MIRROR
+     JTBD answer: "Does this brand understand
+     what I've been through?"
+     This section validates her experience
+     before selling anything.
+     ══════════════════════════════════════ -->
+<section class="frustration">
+  <div class="frustration-eyebrow">Why Viah Exists</div>
+  <div class="frustration-grid">
     <div>
-      <div class="eyebrow">Bestsellers</div>
-      <h2 class="section-title">Start your <strong>ritual</strong></h2>
+      <h2 class="frustration-headline">
+        You didn't fail<br>
+        your skincare routine.<br>
+        <em>It failed you.</em>
+      </h2>
+      <p class="frustration-body">
+        You spent real money. You followed the routine. You waited the weeks. And your skin looked <strong>exactly the same</strong> — or worse, it reacted.
+      </p>
+      <p class="frustration-body">
+        Here's what the ₹4,000 serum didn't tell you: it was <strong>formulated for a different skin type, a different climate, a different melanin profile.</strong> European R&D data doesn't automatically translate to Indian skin. The same ingredient behaves differently across pigmentation levels, humidity, and UV exposure specific to India.
+      </p>
+      <div class="frustration-divider"></div>
+      <p class="frustration-body">
+        Viah was built backwards — starting with Indian skin conditions first, then sourcing the rarest global ingredients that actually address them. Not copy-pasted. <strong>Built for your skin, specifically.</strong>
+      </p>
     </div>
-    <a href="https://viahbeauty.com/collections/all-products" class="text-link">View all 18 products →</a>
+    <div class="frustration-cards">
+      <div class="fcard">
+        <div class="fcard-num">01</div>
+        <div>
+          <div class="fcard-title">The ingredient is rare. The price isn't inflated.</div>
+          <div class="fcard-desc">Italian White Truffle appears on Michelin menus. We source it at origin and bring it to you without the European luxury markup. You're paying for the ingredient — not someone else's brand story.</div>
+        </div>
+      </div>
+      <div class="fcard">
+        <div class="fcard-num">02</div>
+        <div>
+          <div class="fcard-title">Tested on Indian skin. In Indian conditions.</div>
+          <div class="fcard-desc">Every product goes through independent efficacy trials before it reaches you — on Indian skin, in Indian humidity, under Indian UV. European clinical data doesn't cross over automatically.</div>
+        </div>
+      </div>
+      <div class="fcard">
+        <div class="fcard-num">03</div>
+        <div>
+          <div class="fcard-title">Visible change or your money back.</div>
+          <div class="fcard-desc">30 days. If your skin hasn't visibly changed, we return every rupee. No forms, no waiting, no questions. Because results are the only reason to exist.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     SKIN PROBLEM FINDER
+     Written in her language — frustration
+     outcomes, not product category names.
+     ══════════════════════════════════════ -->
+<section class="finder" id="finder">
+  <div class="finder-header">
+    <div class="finder-eyebrow">Find Your Product</div>
+    <h2 class="finder-headline">Tell us what <em>hasn't worked.</em><br>We'll show you what will.</h2>
+    <p class="finder-sub">Select what you've been trying to fix. We'll match you to the one or two products that actually address it.</p>
   </div>
 
-  <div class="products-grid">
-    <div class="product-card">
+  <div class="finder-pills">
+    <button class="finder-pill active" data-concern="all">Show All</button>
+    <button class="finder-pill" data-concern="ageing">Skin that's stopped firming</button>
+    <button class="finder-pill" data-concern="pigmentation">Dullness that won't budge</button>
+    <button class="finder-pill" data-concern="eyes">Dark circles through every cream</button>
+    <button class="finder-pill" data-concern="acne">Acne that keeps returning</button>
+    <button class="finder-pill" data-concern="hydration">Moisturiser absorbed, skin still dry</button>
+    <button class="finder-pill" data-concern="pollution">City pollution showing on your face</button>
+  </div>
+
+  <div class="finder-results" id="finder-results">
+    <!-- All four products shown by default -->
+    <div class="product-card" data-concerns="ageing hydration">
       <div class="product-card-img-wrap">
         <div class="product-badge">Bestseller</div>
         <img src="Instant skin tightening serum.png" alt="Instant Skin Tightening Serum">
       </div>
       <div class="product-info">
-        <div class="product-concern">Anti-Ageing · Firming</div>
+        <div class="product-concern">Firming · Anti-Ageing</div>
         <div class="product-name">Instant Skin Tightening Serum</div>
         <div class="product-stars">
           <span class="stars-icons">★★★★★</span>
@@ -1246,18 +1283,18 @@ footer {
         </div>
         <div class="product-footer">
           <span class="product-price">from ₹1,749</span>
-          <button class="add-btn">Add to Bag</button>
+          <button class="add-btn" onclick="window.open('https://viahbeauty.com/collections/serum','_blank')">Add to Bag</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-concerns="ageing hydration pollution">
       <div class="product-card-img-wrap">
         <div class="product-badge">Top Rated</div>
         <img src="High performance moisture image.png" alt="High Performance Moisturiser">
       </div>
       <div class="product-info">
-        <div class="product-concern">Anti-Ageing · White Truffle</div>
+        <div class="product-concern">Deep Hydration · White Truffle</div>
         <div class="product-name">High Performance Moisturiser</div>
         <div class="product-stars">
           <span class="stars-icons">★★★★★</span>
@@ -1265,12 +1302,12 @@ footer {
         </div>
         <div class="product-footer">
           <span class="product-price">from ₹2,149</span>
-          <button class="add-btn">Add to Bag</button>
+          <button class="add-btn" onclick="window.open('https://viahbeauty.com/collections/face-cream','_blank')">Add to Bag</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-concerns="eyes pigmentation">
       <div class="product-card-img-wrap">
         <img src="Eye countour serum.png" alt="Eye Contour Rejuvenating Serum">
       </div>
@@ -1283,12 +1320,12 @@ footer {
         </div>
         <div class="product-footer">
           <span class="product-price">from ₹1,549</span>
-          <button class="add-btn">Add to Bag</button>
+          <button class="add-btn" onclick="window.open('https://viahbeauty.com/collections/eye-contour-care','_blank')">Add to Bag</button>
         </div>
       </div>
     </div>
 
-    <div class="product-card">
+    <div class="product-card" data-concerns="pigmentation acne hydration">
       <div class="product-card-img-wrap">
         <div class="product-badge orange">New Formula</div>
         <img src="Triple action mositure.png" alt="Triple Action Moisturiser">
@@ -1302,55 +1339,119 @@ footer {
         </div>
         <div class="product-footer">
           <span class="product-price">₹1,399</span>
-          <button class="add-btn">Add to Bag</button>
+          <button class="add-btn" onclick="window.open('https://viahbeauty.com/collections/face-cream','_blank')">Add to Bag</button>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PROOF -->
+<!-- INGREDIENTS -->
+<section class="ingredients" id="ingredients">
+  <div class="ingredients-header">
+    <div>
+      <div style="font-family:var(--font-utility);font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;">The Ingredient Difference</div>
+      <h2 class="ingredients-headline">Seven rare ingredients.<br><em>Zero commodity.</em></h2>
+    </div>
+    <p class="ingredients-note">Each ingredient chosen for proven efficacy on Indian skin — not cost, not availability, not what's trending.</p>
+  </div>
+
+  <div class="ingredients-grid">
+    <div class="ing-card-img">
+      <img class="ing-img" src="White tuffel.png" alt="Italian White Truffle">
+    </div>
+    <div class="ing-card-img">
+      <img class="ing-img" src="Australian Lime Caviar.png" alt="Australian Lime Caviar">
+    </div>
+    <div class="ing-card-img">
+      <img class="ing-img" src="Rose Myrtle Berry.png" alt="Rose Myrtle Berry">
+    </div>
+  </div>
+
+  <div class="ingredients-grid">
+    <div class="ing-card">
+      <div class="ing-tag">Visible Firming · 5 Minutes</div>
+      <div class="ing-name">Easyliance</div>
+      <div class="ing-desc">Clinically proven tensing complex that delivers visible skin tightening within 5 minutes of application. The mechanism behind our bestselling serum — not a claim, a measurable result.</div>
+      <div class="ing-origin">Biotechnology · France</div>
+    </div>
+    <div class="ing-card">
+      <div class="ing-tag">Moisture Barrier · Deep Hydration</div>
+      <div class="ing-name">Aquaxyl</div>
+      <div class="ing-desc">Strengthens the skin's moisture barrier from within. Works specifically with Indian skin's tendency toward dehydration — whether in Delhi winter or Mumbai monsoon.</div>
+      <div class="ing-origin">Biotechnology · Switzerland</div>
+    </div>
+    <div class="ing-card">
+      <div class="ing-tag">Urban Skin · Pollution Shield</div>
+      <div class="ing-name">Pollushield</div>
+      <div class="ing-desc">Invisible barrier against PM2.5 particles and blue light. Engineered specifically for Indian urban conditions — Delhi, Mumbai, Bengaluru air quality data built into the formulation.</div>
+      <div class="ing-origin">Developed for Urban India</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     PROOF — REVIEWS AS CONVERT STORIES
+     "Who noticed before you told them"
+     format — third-party validation.
+     ══════════════════════════════════════ -->
 <section class="proof" id="proof">
   <div class="proof-header">
-    <div class="eyebrow">Real Results</div>
-    <h2 class="proof-headline">Indian skin. <strong>Visible transformation.</strong></h2>
-    <p class="proof-sub">Over 630 verified reviews from women across India who switched to Viah.</p>
+    <div class="proof-eyebrow">Real Results</div>
+    <h2 class="proof-headline">Indian skin. <em>Visible proof.</em></h2>
+    <p class="proof-sub">630+ women who switched to Viah after other brands didn't deliver. In their own words.</p>
   </div>
+
   <div class="testimonials">
     <div class="tcard">
       <span class="tcard-mark">"</span>
-      <p class="tcard-text">The instant skin tightening serum is one of the finest serums I have ever used. With Easyliance and hyaluronic acid, my skin looks visibly plumper in just a few applications. It is a must buy.</p>
+      <p class="tcard-text">The instant skin tightening serum is the finest serum I've ever used. My skin looks visibly plumper — and my sister noticed before I said anything.</p>
+      <div class="tcard-previously">
+        <strong>Previously using:</strong> A ₹3,200 European serum for 4 months with no visible change.
+      </div>
       <div class="tcard-footer">
         <div class="tcard-avatar">R</div>
         <div>
           <div class="tcard-name">Ratikka · Gurgaon</div>
+          <div class="tcard-loc">Verified Buyer</div>
           <div class="tcard-stars">★★★★★</div>
         </div>
       </div>
     </div>
+
     <div class="tcard">
       <span class="tcard-mark">"</span>
-      <p class="tcard-text">This serum gets absorbed easily. My skin looks brighter and clearer after only two weeks. It controls sebum and acne without drying — I've never found that combination anywhere else before.</p>
+      <p class="tcard-text">Brighter, clearer skin after two weeks. Controls sebum without drying — I'd never found that combination before. My dermatologist asked what I changed.</p>
+      <div class="tcard-previously">
+        <strong>Previously using:</strong> Dot & Key and The Derma Co. — results were inconsistent.
+      </div>
       <div class="tcard-footer">
         <div class="tcard-avatar">A</div>
         <div>
           <div class="tcard-name">Arushi · Delhi</div>
+          <div class="tcard-loc">Verified Buyer</div>
           <div class="tcard-stars">★★★★★</div>
         </div>
       </div>
     </div>
+
     <div class="tcard">
       <span class="tcard-mark">"</span>
-      <p class="tcard-text">Viah is magic. The moisturiser is light, non-greasy, and has replaced the product I was using before — which cost double the price. I couldn't be happier after three weeks of use.</p>
+      <p class="tcard-text">Light, non-greasy, and it's replaced the product I was using before — which cost double. Three weeks in. I'm not going back.</p>
+      <div class="tcard-previously">
+        <strong>Previously using:</strong> A ₹4,400 moisturiser for 6 months.
+      </div>
       <div class="tcard-footer">
         <div class="tcard-avatar">C</div>
         <div>
           <div class="tcard-name">Chandni · Jaipur</div>
+          <div class="tcard-loc">Verified Buyer</div>
           <div class="tcard-stars">★★★★★</div>
         </div>
       </div>
     </div>
   </div>
+
   <div class="stats-row">
     <div class="stat-block">
       <div class="stat-num">630<span>+</span></div>
@@ -1371,25 +1472,56 @@ footer {
   </div>
 </section>
 
-<!-- TRUST -->
+<!-- TRUST / CLINICAL -->
 <section class="trust">
   <div class="trust-grid">
     <div class="trust-text">
-      <div class="eyebrow">The Science Behind It</div>
-      <h2 class="trust-headline">Clinically tested.<br><strong>Not just claimed.</strong></h2>
-      <p class="trust-body">We don't use "clinically tested" as decoration. Every Viah product goes through independent efficacy trials before it reaches you — tested on Indian skin, in Indian conditions, because European data doesn't automatically translate to a different melanin profile.</p>
-      <p class="trust-body">We chose what to exclude with the same rigour: no mineral oil, no petrochem, no parabens, no GMOs, no synthetic dyes, no sulphates. Not because it's trendy. Because it's right.</p>
+      <div class="trust-eyebrow">The Science Behind It</div>
+      <h2 class="trust-headline">Clinically tested.<br><em>Not just printed on the box.</em></h2>
+      <p class="trust-body">
+        We know "clinically tested" has become filler. So here's what it actually means for Viah: <strong>independent efficacy trials, run on Indian skin, in Indian conditions,</strong> before any product ships. Not one lab. Not our own R&D. Independent.
+      </p>
+      <p class="trust-body">
+        European clinical data doesn't cross melanin profiles automatically. Indian skin has a distinct response to humidity, UV exposure, and pollution that requires separate testing. We run that testing. Every product, every time.
+      </p>
       <div class="guarantee-box">
-        <div class="guarantee-text">If you don't see a visible difference in 30 days, we will give you your money back. No questions asked.</div>
+        <span class="guarantee-icon">↩</span>
+        <div class="guarantee-text">
+          <strong>30-day visible difference guarantee.</strong> If your skin hasn't changed in 30 days, we return every rupee. No forms, no waiting, no questions asked. Because if it doesn't show — it doesn't count.
+        </div>
       </div>
     </div>
     <div class="trust-badges">
-      <div class="tbadge"><div><div class="tbadge-title">Clinically Tested</div><div class="tbadge-desc">Independent efficacy trials on Indian skin in Indian conditions</div></div></div>
-      <div class="tbadge"><div><div class="tbadge-title">No Animal Testing</div><div class="tbadge-desc">Cruelty-free, always — not just when it's a marketing trend</div></div></div>
-      <div class="tbadge"><div><div class="tbadge-title">No Petrochem</div><div class="tbadge-desc">No mineral oil, no parabens, no sulfates, no synthetic dyes</div></div></div>
-      <div class="tbadge"><div><div class="tbadge-title">Globally Sourced</div><div class="tbadge-desc">Italy, Australia, France, Switzerland, and India</div></div></div>
-      <div class="tbadge"><div><div class="tbadge-title">No GMOs</div><div class="tbadge-desc">Every ingredient sourced in its natural, unmodified form</div></div></div>
-      <div class="tbadge"><div><div class="tbadge-title">Made for India</div><div class="tbadge-desc">Formulated for Indian climate, skin tone, and urban lifestyle</div></div></div>
+      <div class="tbadge">
+        <span class="tbadge-icon">🧪</span>
+        <div class="tbadge-title">Independent Clinical Testing</div>
+        <div class="tbadge-desc">Third-party efficacy trials on Indian skin, Indian conditions — not internal R&D claims</div>
+      </div>
+      <div class="tbadge">
+        <span class="tbadge-icon">🐇</span>
+        <div class="tbadge-title">No Animal Testing</div>
+        <div class="tbadge-desc">Cruelty-free always — not a marketing position, a non-negotiable</div>
+      </div>
+      <div class="tbadge">
+        <span class="tbadge-icon">🚫</span>
+        <div class="tbadge-title">No Petrochem</div>
+        <div class="tbadge-desc">No mineral oil, no parabens, no sulfates, no synthetic dyes — excluded by design</div>
+      </div>
+      <div class="tbadge">
+        <span class="tbadge-icon">🌍</span>
+        <div class="tbadge-title">Globally Sourced</div>
+        <div class="tbadge-desc">Italy, Australia, France, Switzerland, and India — origin-verified, not substitute</div>
+      </div>
+      <div class="tbadge">
+        <span class="tbadge-icon">🌱</span>
+        <div class="tbadge-title">No GMOs</div>
+        <div class="tbadge-desc">Every ingredient in its natural, unmodified form — sourced as nature made it</div>
+      </div>
+      <div class="tbadge">
+        <span class="tbadge-icon">🇮🇳</span>
+        <div class="tbadge-title">Built for India</div>
+        <div class="tbadge-desc">Indian climate, Indian skin tone, Indian urban reality — formulated here, not adapted</div>
+      </div>
     </div>
   </div>
 </section>
@@ -1397,33 +1529,33 @@ footer {
 <!-- RITUAL -->
 <section class="ritual" id="ritual">
   <div class="ritual-header">
-    <div class="eyebrow ritual-eyebrow">The 7-Minute Ritual</div>
-    <h2 class="ritual-headline">One complete routine.<br><strong>Morning to night.</strong></h2>
-    <p class="ritual-sub">Four steps. Seven minutes. The difference between skin that reacts and skin that performs.</p>
+    <div class="ritual-eyebrow">The 7-Minute Ritual</div>
+    <h2 class="ritual-headline">One complete routine.<br><em>Morning to night.</em></h2>
+    <p class="ritual-sub">Four steps. Seven minutes. The difference between skin that keeps reacting and skin that finally performs.</p>
   </div>
   <div class="ritual-steps">
     <div class="rstep" data-num="01">
       <div class="rstep-time">Step One · AM + PM</div>
       <div class="rstep-name">Cleanse</div>
-      <div class="rstep-desc">Start clean. Our pH-balanced cleansers remove the day without stripping your barrier — preparing skin to absorb everything that follows.</div>
+      <div class="rstep-desc">pH-balanced. Removes everything without stripping your barrier — so every active that follows actually reaches the dermis instead of sitting on a compromised surface.</div>
       <div class="rstep-product">Ultra-Clarifying Cleanser</div>
     </div>
     <div class="rstep" data-num="02">
       <div class="rstep-time">Step Two · AM + PM</div>
       <div class="rstep-name">Tone</div>
-      <div class="rstep-desc">Restore natural pH balance. Our toners prep your skin to receive actives — not just water them down before they hit.</div>
+      <div class="rstep-desc">Restores your skin's natural pH so actives aren't diluted before they penetrate. Not a water rinse — a preparation step that determines what happens next.</div>
       <div class="rstep-product">Miracle Glow Toner</div>
     </div>
     <div class="rstep" data-num="03">
       <div class="rstep-time">Step Three · PM Focus</div>
       <div class="rstep-name">Treat</div>
-      <div class="rstep-desc">This is where real work happens. Serums deliver White Truffle, Easyliance, and Aquaxyl directly to the dermal layer overnight.</div>
+      <div class="rstep-desc">Where the real work happens. White Truffle, Easyliance, and Aquaxyl delivered directly to the dermal layer overnight — when your skin is in repair mode.</div>
       <div class="rstep-product">Instant Tightening Serum</div>
     </div>
     <div class="rstep" data-num="04">
       <div class="rstep-time">Step Four · AM + PM</div>
       <div class="rstep-name">Moisturise</div>
-      <div class="rstep-desc">Lock in everything you've applied. Italian White Truffle seals, nourishes, and completes the ritual so nothing is wasted.</div>
+      <div class="rstep-desc">Seals everything you've applied. Italian White Truffle locks in the actives and provides a pollution barrier — so nothing you've done in the previous three steps is wasted.</div>
       <div class="rstep-product">High Performance Moisturiser</div>
     </div>
   </div>
@@ -1431,12 +1563,12 @@ footer {
 
 <!-- CTA -->
 <section class="cta-band">
-  <span class="eyebrow">Your skin. Your ritual.</span>
-  <h2 class="cta-headline">Ready for the <strong>Truffle difference?</strong></h2>
-  <p class="cta-sub">Join 630+ Indian women who upgraded their skincare — without upgrading their budget to match European luxury prices.</p>
+  <span class="cta-eyebrow">Your skin. Your evidence.</span>
+  <h2 class="cta-headline">30 days to prove it.<br><em>Or your money back.</em></h2>
+  <p class="cta-sub">Join 630+ Indian women who switched — and finally saw the difference they'd been paying for all along.</p>
   <div class="cta-actions">
     <a href="https://viahbeauty.com/collections/all-products" class="btn-white">Shop Bestsellers</a>
-    <a href="#ritual" class="btn-outline-white">Build My Ritual</a>
+    <a href="#finder" class="btn-outline-white">Find My Product</a>
   </div>
 </section>
 
@@ -1445,7 +1577,7 @@ footer {
   <div class="footer-top">
     <div>
       <span class="footer-logo">VIAH<span>.</span></span>
-      <p class="footer-tagline">India's only skincare brand built on Italian White Truffle and rare global ingredients, formulated specifically for Indian skin.</p>
+      <p class="footer-tagline">Rare global ingredients, formulated for Indian skin. Finally, something that shows.</p>
     </div>
     <div>
       <div class="footer-col-title">Shop</div>
@@ -1462,13 +1594,13 @@ footer {
     <div>
       <div class="footer-col-title">Skin Concerns</div>
       <ul class="footer-links">
-        <li><a href="https://viahbeauty.com/collections/ageing">Ageing</a></li>
-        <li><a href="https://viahbeauty.com/collections/pigmentation">Pigmentation</a></li>
-        <li><a href="https://viahbeauty.com/collections/acne-1">Acne</a></li>
-        <li><a href="https://viahbeauty.com/collections/glow-brightening">Glow</a></li>
-        <li><a href="https://viahbeauty.com/collections/eye-contour-care">Dark Circles</a></li>
+        <li><a href="https://viahbeauty.com/collections/ageing">Skin that's stopped firming</a></li>
+        <li><a href="https://viahbeauty.com/collections/pigmentation">Dullness that won't budge</a></li>
+        <li><a href="https://viahbeauty.com/collections/acne-1">Recurring acne</a></li>
+        <li><a href="https://viahbeauty.com/collections/glow-brightening">Glow & Brightening</a></li>
+        <li><a href="https://viahbeauty.com/collections/eye-contour-care">Persistent dark circles</a></li>
         <li><a href="https://viahbeauty.com/collections/sensitive-skin">Sensitive Skin</a></li>
-        <li><a href="https://viahbeauty.com/collections/pollushield">Pollution Shield</a></li>
+        <li><a href="https://viahbeauty.com/collections/pollushield">Pollution damage</a></li>
       </ul>
     </div>
     <div>
@@ -1492,6 +1624,45 @@ footer {
     </div>
   </div>
 </footer>
+
+<!-- ── SKIN PROBLEM FINDER LOGIC ── -->
+<script>
+(function() {
+  const pills   = document.querySelectorAll('.finder-pill');
+  const cards   = document.querySelectorAll('#finder-results .product-card');
+  const results = document.getElementById('finder-results');
+
+  pills.forEach(pill => {
+    pill.addEventListener('click', function() {
+      // Update active pill
+      pills.forEach(p => p.classList.remove('active'));
+      this.classList.add('active');
+
+      const concern = this.dataset.concern;
+
+      // Fade transition
+      results.classList.add('fading');
+      setTimeout(() => {
+        let visible = 0;
+        cards.forEach(card => {
+          const cardConcerns = card.dataset.concerns || '';
+          const show = concern === 'all' || cardConcerns.includes(concern);
+          card.style.display = show ? 'flex' : 'none';
+          if (show) visible++;
+        });
+
+        // Adjust grid columns based on visible count
+        if (visible === 1)      results.style.gridTemplateColumns = 'repeat(1, 340px)';
+        else if (visible === 2) results.style.gridTemplateColumns = 'repeat(2, 1fr)';
+        else if (visible === 3) results.style.gridTemplateColumns = 'repeat(3, 1fr)';
+        else                    results.style.gridTemplateColumns = 'repeat(4, 1fr)';
+
+        results.classList.remove('fading');
+      }, 200);
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
